@@ -10,16 +10,16 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <style>
     :root{
-      --ink:#241c11;
-      --muted:#6f6046;
+      --ink:#231a0e;
+      --muted:#6d5c40;
       --burgundy:#6d1a2d;
-      --burgundy-dark:#571425;
+      --burgundy-dark:#521222;
       --gold:#a5813c;
       --gold-soft:#c9ab63;
-      --bg:#f6f0e0;
-      --card:#fdfaf1;
-      --line:#ddd0ac;
-      --line-soft:#e7dcc0;
+      --parchment:#f7f0dc;
+      --card:#fffdf4;
+      --line:#d8c69a;
+      --line-soft:#e6dab8;
       --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
       --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     }
@@ -30,73 +30,84 @@
       font-family:var(--serif);
       font-size:1.0625rem;
       color:var(--ink);
-      background:var(--bg);
       line-height:1.75;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      /* Cathedral backdrop: a wash of gold light over deep burgundy shadow */
+      background-color:#130d06;
+      background-image:
+        radial-gradient(1100px 560px at 50% -8%, rgba(201,171,99,.30), rgba(201,171,99,0) 60%),
+        radial-gradient(820px 520px at 88% 0%, rgba(109,26,45,.38), rgba(109,26,45,0) 55%),
+        radial-gradient(820px 620px at 6% 100%, rgba(109,26,45,.24), rgba(109,26,45,0) 55%),
+        linear-gradient(180deg,#1a1107 0%,#120c05 100%);
+      background-attachment:fixed;
     }
-    /* Baroque folio frame around the whole page */
-    body::before,body::after{
-      content:"";position:fixed;pointer-events:none;z-index:50;
-      border:1px solid var(--line);
-    }
-    body::before{inset:9px}
-    body::after{inset:13px;border-color:var(--line-soft)}
     ::selection{background:#e9d9a8}
     a{color:var(--burgundy);text-underline-offset:3px}
     a:hover{color:var(--gold)}
     .hp{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;padding:0;margin:-1px}
     :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
 
-    .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem}
+    /* The charter sheet — parchment folio on the dark ground */
+    .sheet{
+      position:relative;
+      max-width:47.5rem;
+      margin:2.75rem auto 3.5rem;
+      background:linear-gradient(180deg,#faf4e1 0%,var(--parchment) 30%,#f3ead0 100%);
+      border:1px solid var(--gold);
+      box-shadow:0 34px 90px rgba(0,0,0,.6),0 4px 20px rgba(0,0,0,.45);
+    }
+    .sheet::before,.sheet::after{
+      content:"";position:absolute;pointer-events:none;
+      border:1px solid var(--line);
+    }
+    .sheet::before{inset:10px}
+    .sheet::after{inset:14px;border-color:var(--line-soft)}
+    .sheet > *{position:relative;z-index:1}
+    .wrap{max-width:40rem;margin:0 auto;padding:0 1.75rem}
 
-    /* Header — Roman inscription */
-    header{padding:3rem 0 0}
-    nav{
-      text-align:center;
-      padding-bottom:1.75rem;
-      border-bottom:4px double var(--gold);
-    }
-    .cross{display:block;margin:0 auto .9rem}
+    /* Header — crest and inscription */
+    header{padding:3.25rem 0 0}
+    nav{text-align:center;padding-bottom:1.9rem;border-bottom:4px double var(--gold)}
+    .crest{display:block;margin:0 auto 1.1rem}
     .brand{
-      font-size:1.35rem;font-weight:600;
+      font-size:1.42rem;font-weight:600;
       letter-spacing:.34em;text-indent:.34em;
-      color:var(--ink);
     }
-    .tagline{
-      font-style:italic;
-      font-size:1rem;color:var(--muted);
-      margin-top:.35rem;
+    .tagline{font-style:italic;font-size:1.02rem;color:var(--muted);margin-top:.4rem}
+    .virtues{
+      margin-top:1rem;
+      font-family:var(--sans);
+      font-size:.68rem;font-weight:600;
+      letter-spacing:.42em;text-indent:.42em;text-transform:uppercase;
+      color:var(--gold);
     }
 
     /* Hero */
-    .hero{padding:5.5rem 0 5rem;text-align:center}
-    .latin{
-      font-style:italic;
-      font-size:1.02rem;color:var(--muted);
-      margin:0 0 2rem;
-    }
+    .hero{padding:4.75rem 0 4.5rem;text-align:center}
+    .latin{font-style:italic;font-size:1.02rem;color:var(--muted);margin:0 0 2rem}
     .latin .dot{color:var(--gold);font-style:normal;padding:0 .35em}
     h1{
       font-weight:500;
-      font-size:clamp(2.6rem,7vw,4.3rem);
+      font-size:clamp(2.6rem,7vw,4.25rem);
       line-height:1.1;letter-spacing:.005em;
       margin:0 0 1.75rem;
     }
     h1 em{font-style:italic;color:var(--burgundy)}
     .hero .intro{
       color:var(--muted);font-size:1.15rem;line-height:1.7;
-      max-width:36rem;margin:0 auto 2.5rem;
+      max-width:35rem;margin:0 auto 2.5rem;
     }
     .verse{
-      max-width:32rem;margin:0 auto 2.75rem;
-      padding:1.1rem 0;
+      max-width:31rem;margin:0 auto 2.75rem;
+      padding:1.15rem 0;
       border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-      font-style:italic;font-size:1.08rem;color:var(--ink);
+      font-style:italic;font-size:1.09rem;
     }
     .verse .ref{
-      display:block;margin-top:.4rem;
-      font-style:normal;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;
+      display:block;margin-top:.45rem;
+      font-style:normal;font-family:var(--sans);
+      font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
       color:var(--gold);
     }
     .cta{
@@ -108,25 +119,28 @@
       letter-spacing:.18em;text-transform:uppercase;
       padding:.95rem 2.2rem;border-radius:2px;
       text-decoration:none;
+      box-shadow:0 6px 18px rgba(82,18,34,.28);
       transition:background-color .25s ease;
     }
     .cta:hover{background:var(--burgundy-dark);color:#fdf6dd}
 
-    /* Sections */
-    section{padding:3.75rem 0 0}
-    section + section{margin-top:3.75rem;border-top:1px solid var(--line-soft);padding-top:3.75rem}
+    /* Sections — numbered in Roman, like chapters of a charter */
+    main{counter-reset:chapter}
+    section{padding:3.5rem 0 0}
+    section + section{margin-top:3.5rem;border-top:1px solid var(--line-soft);padding-top:3.5rem}
     h2{
       font-weight:600;
-      font-size:1.28rem;line-height:1.3;
+      font-size:1.26rem;line-height:1.3;
       letter-spacing:.16em;text-transform:uppercase;
       margin:0 0 1.4rem;
     }
-    h2::after{
-      content:"";display:block;
-      width:3rem;height:2px;background:var(--gold);
-      margin-top:.8rem;
+    section:not(.hero) h2::before{
+      counter-increment:chapter;
+      content:counter(chapter,upper-roman) " · ";
+      color:var(--gold);
     }
-    section p{margin:0 0 1.1rem;max-width:38rem}
+    h2::after{content:"";display:block;width:3rem;height:2px;background:var(--gold);margin-top:.8rem}
+    section p{margin:0 0 1.1rem;max-width:37rem}
     section p:last-child{margin-bottom:0}
     .dropcap::first-letter{
       float:left;
@@ -138,21 +152,18 @@
     /* How it will work — arched niches with Roman numerals */
     .grid{
       display:grid;grid-template-columns:repeat(3,1fr);
-      gap:1.75rem;margin-top:2.25rem;
+      gap:1.6rem;margin-top:2.25rem;
       counter-reset:niche;
     }
     .card{
-      background:var(--card);
+      background:linear-gradient(180deg,var(--card),#fbf5e2);
       border:1px solid var(--line);
       border-radius:999px 999px 6px 6px;
-      padding:3rem 1.35rem 1.7rem;
+      padding:2.9rem 1.3rem 1.65rem;
       text-align:center;
+      box-shadow:0 10px 26px rgba(101,78,32,.10);
     }
-    .card h3{
-      font-weight:600;
-      font-size:1.12rem;line-height:1.3;
-      margin:0 0 .55rem;
-    }
+    .card h3{font-weight:600;font-size:1.11rem;line-height:1.3;margin:0 0 .55rem}
     .card h3::before{
       counter-increment:niche;
       content:counter(niche,upper-roman);
@@ -166,83 +177,98 @@
 
     /* Footer */
     footer{
-      margin-top:6rem;
+      margin-top:5.5rem;
       border-top:4px double var(--gold);
-      padding:2.25rem 0 3rem;
+      padding:2.1rem 0 2.9rem;
       text-align:center;
       font-size:.9rem;color:var(--muted);
     }
     footer .motto{
-      font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;
+      font-family:var(--sans);
+      font-size:.72rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;
       color:var(--gold);margin-bottom:.6rem;
     }
 
     /* Gentle entrance, only for those who welcome motion */
     @media (prefers-reduced-motion: no-preference){
-      main{animation:rise .9s ease-out both}
+      .sheet{animation:rise .9s ease-out both}
       @keyframes rise{from{opacity:0}to{opacity:1}}
     }
 
     /* Small screens */
     @media (max-width:640px){
-      .hero{padding:4rem 0 3.5rem}
-      .grid{grid-template-columns:1fr;gap:1.5rem}
-      .card{border-radius:160px 160px 6px 6px;padding-top:2.4rem}
+      .sheet{margin:1rem .6rem 1.5rem}
+      .sheet::before{inset:7px}
+      .sheet::after{inset:10px}
+      .hero{padding:3.5rem 0 3.25rem}
+      .grid{grid-template-columns:1fr;gap:1.4rem}
+      .card{border-radius:150px 150px 6px 6px;padding-top:2.3rem}
       section + section{margin-top:3rem;padding-top:3rem}
       section{padding-top:3rem}
-      .brand{font-size:1.1rem}
-      footer{margin-top:4.5rem}
+      .brand{font-size:1.08rem}
+      .virtues{letter-spacing:.3em;text-indent:.3em}
+      footer{margin-top:4rem}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <svg class="cross" width="18" height="26" viewBox="0 0 18 26" aria-hidden="true"><path d="M9 1v24M2.5 8.5h13" stroke="#a5813c" stroke-width="1.6"/></svg>
-        <div class="brand">ALMUS MERCATUS</div>
-        <div class="tagline">The Altruistic Mart</div>
-      </nav>
-    </div>
-  </header>
-  <main class="wrap">
-    <section class="hero">
-      <p class="latin">Almus — kind, nourishing, benevolent <span class="dot" aria-hidden="true">·</span> Mercatus — a market, a mart</p>
-      <h1>A market that<br><em>gives back.</em></h1>
-      <p class="intro">Almus Mercatus is the altruistic mart — a place to buy and sell where every exchange is meant to leave people a little better off.</p>
-      <blockquote class="verse">“It is more blessed to give than to receive.”<span class="ref">Acts 20 : 35</span></blockquote>
-      <!-- TODO(Joshua): replace with your real call to action / shop link -->
-      <a class="cta" href="#about">Learn more</a>
-    </section>
-
-    <section id="about">
-      <h2>Why “altruistic”?</h2>
-      <p class="dropcap">Most markets ask only, “what’s it worth?” We also ask, “who does it help?” Almus Mercatus is being built around generosity as a feature, not an afterthought.</p>
-      <!-- TODO(Joshua): add your concrete model here — e.g. % of proceeds, featured causes, seller pledge. Do not publish a % until you decide it. -->
-    </section>
-
-    <section>
-      <h2>How it will work</h2>
-      <div class="grid">
-        <div class="card"><h3>Shop with purpose</h3><p>Find goods from sellers who share the idea that commerce can be kind.</p></div>
-        <div class="card"><h3>Sell with purpose</h3><p>Offer what you make or find, and be part of a market built on fairness and goodwill.</p></div>
-        <div class="card"><h3>Give with purpose</h3><p>The giving built into each sale will be stated plainly, so you know where it goes.</p></div>
+  <div class="sheet">
+    <header>
+      <div class="wrap">
+        <nav>
+          <svg class="crest" width="76" height="76" viewBox="0 0 80 80" role="img" aria-label="Crest of Almus Mercatus: a cross within a radiant ring">
+            <g stroke="#a5813c" stroke-width="1.6" stroke-linecap="round">
+              <path d="M40 2v6M40 72v6M2 40h6M72 40h6M13.2 13.2l4.2 4.2M62.6 62.6l4.2 4.2M66.8 13.2l-4.2 4.2M17.4 62.6l-4.2 4.2"/>
+            </g>
+            <circle cx="40" cy="40" r="29" fill="#6d1a2d" stroke="#a5813c" stroke-width="1.6"/>
+            <circle cx="40" cy="40" r="24.5" fill="none" stroke="#c9ab63" stroke-width=".8"/>
+            <path d="M40 25v30M29 36h22" stroke="#eedaa6" stroke-width="3" stroke-linecap="square"/>
+          </svg>
+          <div class="brand">ALMUS MERCATUS</div>
+          <div class="tagline">The Altruistic Mart</div>
+          <div class="virtues">Caritas · Fides · Spes</div>
+        </nav>
       </div>
-    </section>
+    </header>
+    <main class="wrap">
+      <section class="hero">
+        <p class="latin">Almus — kind, nourishing, benevolent <span class="dot" aria-hidden="true">·</span> Mercatus — a market, a mart</p>
+        <h1>A market that<br><em>gives back.</em></h1>
+        <p class="intro">Almus Mercatus is the altruistic mart — a place to buy and sell where every exchange is meant to leave people a little better off.</p>
+        <blockquote class="verse">“It is more blessed to give than to receive.”<span class="ref">Acts 20 : 35</span></blockquote>
+        <!-- TODO(Joshua): replace with your real call to action / shop link -->
+        <a class="cta" href="#about">Learn more</a>
+      </section>
 
-    <section>
-      <h2>Coming soon</h2>
-      <p>We’re just getting started. Check back as the first listings, sellers, and causes are added.</p>
-      <p>Questions or ideas in the meantime? Write to <span id="contact-email"><noscript>joshua.foraker [at] almsmercatus [dot] com</noscript></span>.</p>
-      <!-- TODO(Joshua): add newsletter signup -->
-    </section>
-  </main>
-  <footer>
-    <div class="wrap">
-      <div class="motto">Caritas · Fides · Spes</div>
-      © <span id="y"></span> Almus Mercatus · almsmercatus.com <a class="hp" href="/labyrinth.html" aria-hidden="true" tabindex="-1">archive</a>
-    </div>
-  </footer>
+      <section id="about">
+        <h2>Why “altruistic”?</h2>
+        <p class="dropcap">Most markets ask only, “what’s it worth?” We also ask, “who does it help?” Almus Mercatus is being built around generosity as a feature, not an afterthought.</p>
+        <!-- TODO(Joshua): add your concrete model here — e.g. % of proceeds, featured causes, seller pledge. Do not publish a % until you decide it. -->
+      </section>
+
+      <section>
+        <h2>How it will work</h2>
+        <div class="grid">
+          <div class="card"><h3>Shop with purpose</h3><p>Find goods from sellers who share the idea that commerce can be kind.</p></div>
+          <div class="card"><h3>Sell with purpose</h3><p>Offer what you make or find, and be part of a market built on fairness and goodwill.</p></div>
+          <div class="card"><h3>Give with purpose</h3><p>The giving built into each sale will be stated plainly, so you know where it goes.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Coming soon</h2>
+        <p>We’re just getting started. Check back as the first listings, sellers, and causes are added.</p>
+        <p>Questions or ideas in the meantime? Write to <span id="contact-email"><noscript>joshua.foraker [at] almsmercatus [dot] com</noscript></span>.</p>
+        <!-- TODO(Joshua): add newsletter signup -->
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div class="motto">Caritas · Fides · Spes</div>
+        © <span id="y"></span> Almus Mercatus · almsmercatus.com <a class="hp" href="/labyrinth.html" aria-hidden="true" tabindex="-1">archive</a>
+      </div>
+    </footer>
+  </div>
   <script>
   document.getElementById('y').textContent=new Date().getFullYear();
   (function(){var u='joshua'+'.'+'foraker',d='almsmercatus'+'.'+'com',a=document.createElement('a');a.href='mai'+'lto:'+u+'@'+d;a.textContent=u+'@'+d;var s=document.getElementById('contact-email');if(s){s.appendChild(a);}})();
