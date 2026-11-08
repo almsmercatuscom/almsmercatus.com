@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Almus Mercatus — The Altruistic Mart</title>
   <meta name="description" content="Almus Mercatus is the altruistic mart: a market built to do good with every exchange. Almus — kind, nourishing, benevolent. Mercatus — market.">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <style>
     :root{
       --ink:#212724;
@@ -33,6 +36,7 @@
     ::selection{background:#dce8df}
     a{color:var(--accent);text-underline-offset:3px}
     a:hover{color:var(--accent-dark)}
+    .hp{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;padding:0;margin:-1px}
     :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
     .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem}
@@ -165,13 +169,16 @@
     <section>
       <h2>Coming soon</h2>
       <p>We’re just getting started. Check back as the first listings, sellers, and causes are added.</p>
-      <p>Questions or ideas in the meantime? Write to <a href="mailto:joshua.foraker@almsmercatus.com">joshua.foraker@almsmercatus.com</a>.</p>
+      <p>Questions or ideas in the meantime? Write to <span id="contact-email"><noscript>joshua.foraker [at] almsmercatus [dot] com</noscript></span>.</p>
       <!-- TODO(Joshua): add newsletter signup -->
     </section>
   </main>
   <footer>
-    <div class="wrap">© <span id="y"></span> Almus Mercatus · almsmercatus.com</div>
+    <div class="wrap">© <span id="y"></span> Almus Mercatus · almsmercatus.com <a class="hp" href="/labyrinth.html" aria-hidden="true" tabindex="-1">archive</a></div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  (function(){var u='joshua'+'.'+'foraker',d='almsmercatus'+'.'+'com',a=document.createElement('a');a.href='mai'+'lto:'+u+'@'+d;a.textContent=u+'@'+d;var s=document.getElementById('contact-email');if(s){s.appendChild(a);}})();
+  </script>
 </body>
 </html>
