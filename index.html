@@ -6,27 +6,141 @@
   <title>Almus Mercatus — The Altruistic Mart</title>
   <meta name="description" content="Almus Mercatus is the altruistic mart: a market built to do good with every exchange. Almus — kind, nourishing, benevolent. Mercatus — market.">
   <style>
-    :root{--ink:#1c2321;--muted:#5b6660;--accent:#2f6b4f;--bg:#fbfaf7;--card:#fff;--line:#e5e0d5}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-    header,main,footer{max-width:960px;margin:0 auto;padding:24px}
-    nav{display:flex;justify-content:space-between;align-items:center}
-    .brand{font-weight:700;letter-spacing:.02em}
-    .hero{padding:72px 24px;text-align:center}
-    .hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.05;margin:.2em 0}
-    .hero p{color:var(--muted);font-size:1.2rem;max-width:640px;margin:16px auto}
-    .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-    h2{margin-top:48px} .latin{font-style:italic;color:var(--muted)} footer{color:var(--muted);border-top:1px solid var(--line);margin-top:64px}
+    :root{
+      --ink:#212724;
+      --muted:#52605a;
+      --accent:#2f6b4f;
+      --accent-dark:#275c43;
+      --bg:#fbfaf7;
+      --card:#fffefb;
+      --line:#e7e2d6;
+      --line-soft:#efece2;
+      --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+      --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      font-size:1.0625rem;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    ::selection{background:#dce8df}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+    .wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem}
+
+    /* Header */
+    header{padding:2.25rem 0 0}
+    nav{
+      display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+      padding-bottom:1.25rem;border-bottom:1px solid var(--line);
+    }
+    .brand{
+      font-family:var(--serif);
+      font-size:.95rem;font-weight:600;
+      letter-spacing:.22em;
+    }
+    .tagline{
+      font-family:var(--serif);font-style:italic;
+      font-size:.95rem;color:var(--muted);white-space:nowrap;
+    }
+
+    /* Hero */
+    .hero{padding:6.5rem 0 5.5rem;text-align:center}
+    .latin{
+      font-family:var(--serif);font-style:italic;
+      font-size:1.02rem;color:var(--muted);
+      margin:0 0 2rem;
+    }
+    .latin .dot{color:var(--accent);font-style:normal;padding:0 .35em}
+    h1{
+      font-family:var(--serif);font-weight:500;
+      font-size:clamp(2.6rem,7vw,4.3rem);
+      line-height:1.08;letter-spacing:-.01em;
+      margin:0 0 1.75rem;
+    }
+    .hero .intro{
+      color:var(--muted);font-size:1.16rem;line-height:1.65;
+      max-width:36rem;margin:0 auto 2.75rem;
+    }
+    .cta{
+      display:inline-block;
+      background:var(--accent);color:#fff;
+      font-size:.82rem;font-weight:600;
+      letter-spacing:.14em;text-transform:uppercase;
+      padding:.95rem 2.1rem;border-radius:999px;
+      text-decoration:none;
+      transition:background-color .25s ease;
+    }
+    .cta:hover{background:var(--accent-dark)}
+
+    /* Sections */
+    section{padding:3.75rem 0 0}
+    section + section{margin-top:3.75rem;border-top:1px solid var(--line-soft);padding-top:3.75rem}
+    h2{
+      font-family:var(--serif);font-weight:500;
+      font-size:1.85rem;line-height:1.2;letter-spacing:-.005em;
+      margin:0 0 1.1rem;
+    }
+    section p{margin:0 0 1.1rem;max-width:38rem}
+    section p:last-child{margin-bottom:0}
+
+    /* How it will work */
+    .grid{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:2.5rem;margin-top:2.25rem;
+    }
+    .card{border-top:2px solid var(--line);padding-top:1.4rem}
+    .card h3{
+      font-family:var(--serif);font-weight:600;
+      font-size:1.13rem;line-height:1.3;
+      margin:0 0 .55rem;
+    }
+    .card p{font-size:.98rem;color:var(--muted);margin:0}
+
+    /* Footer */
+    footer{
+      margin-top:6rem;
+      border-top:1px solid var(--line);
+      padding:2rem 0 2.75rem;
+      text-align:center;
+      font-size:.88rem;color:var(--muted);
+    }
+
+    /* Gentle entrance, only for those who welcome motion */
+    @media (prefers-reduced-motion: no-preference){
+      main{animation:rise .9s ease-out both}
+      @keyframes rise{from{opacity:0}to{opacity:1}}
+    }
+
+    /* Small screens */
+    @media (max-width:640px){
+      .hero{padding:4rem 0 3.5rem}
+      .grid{grid-template-columns:1fr;gap:2rem}
+      section + section{margin-top:3rem;padding-top:3rem}
+      section{padding-top:3rem}
+      .tagline{display:none}
+      footer{margin-top:4.5rem}
+    }
   </style>
 </head>
 <body>
-  <header><nav><div class="brand">ALMUS MERCATUS</div><div>The Altruistic Mart</div></nav></header>
-  <main>
+  <header>
+    <div class="wrap">
+      <nav><div class="brand">ALMUS MERCATUS</div><div class="tagline">The Altruistic Mart</div></nav>
+    </div>
+  </header>
+  <main class="wrap">
     <section class="hero">
-      <p class="latin">Almus — kind, nourishing, benevolent &nbsp;·&nbsp; Mercatus — a market, a mart</p>
+      <p class="latin">Almus — kind, nourishing, benevolent <span class="dot" aria-hidden="true">·</span> Mercatus — a market, a mart</p>
       <h1>A market that<br>gives back.</h1>
-      <p>Almus Mercatus is the altruistic mart — a place to buy and sell where every exchange is meant to leave people a little better off.</p>
+      <p class="intro">Almus Mercatus is the altruistic mart — a place to buy and sell where every exchange is meant to leave people a little better off.</p>
       <!-- TODO(Joshua): replace with your real call to action / shop link -->
       <a class="cta" href="#about">Learn more</a>
     </section>
@@ -52,7 +166,9 @@
       <!-- TODO(Joshua): add contact email / newsletter signup -->
     </section>
   </main>
-  <footer>© <span id="y"></span> Almus Mercatus · almsmercatus.com</footer>
+  <footer>
+    <div class="wrap">© <span id="y"></span> Almus Mercatus · almsmercatus.com</div>
+  </footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
