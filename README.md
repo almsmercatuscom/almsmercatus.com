@@ -10,4 +10,4 @@ Starter site draft prepared for Joshua. `index.html` is a single-page homepage,
 Open TODOs in index.html for Joshua to decide before publishing:
 - Real call to action / shop link
 - Concrete giving model (e.g. % of proceeds, featured causes, seller pledge)
-- Contact email / newsletter signup
+- Newsletter signup (contact email joshua.foraker@almsmercatus.com is published on the homepage)
