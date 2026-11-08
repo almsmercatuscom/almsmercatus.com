@@ -1,6 +1,6 @@
 # Almus Mercatus — The Altruistic Mart
 
-almusmercatus.com
+almsmercatus.com
 
 From Latin: *almus* (kind, nourishing, benevolent) + *mercatus* (market, mart).
 
