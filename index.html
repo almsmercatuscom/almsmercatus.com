@@ -33,7 +33,7 @@
       line-height:1.75;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
-      /* Cathedral backdrop: a wash of gold light over deep burgundy shadow */
+      /* Backdrop: a wash of gold light over deep burgundy shadow */
       background-color:#130d06;
       background-image:
         radial-gradient(1100px 560px at 50% -8%, rgba(201,171,99,.30), rgba(201,171,99,0) 60%),
@@ -216,17 +216,26 @@
     <header>
       <div class="wrap">
         <nav>
-          <svg class="crest" width="76" height="76" viewBox="0 0 80 80" role="img" aria-label="Crest of Almus Mercatus: a cross within a radiant ring">
+          <svg class="crest" width="76" height="76" viewBox="0 0 80 80" role="img" aria-label="Crest of Almus Mercatus: an olive branch within a radiant ring">
             <g stroke="#a5813c" stroke-width="1.6" stroke-linecap="round">
               <path d="M40 2v6M40 72v6M2 40h6M72 40h6M13.2 13.2l4.2 4.2M62.6 62.6l4.2 4.2M66.8 13.2l-4.2 4.2M17.4 62.6l-4.2 4.2"/>
             </g>
             <circle cx="40" cy="40" r="29" fill="#6d1a2d" stroke="#a5813c" stroke-width="1.6"/>
             <circle cx="40" cy="40" r="24.5" fill="none" stroke="#c9ab63" stroke-width=".8"/>
-            <path d="M40 25v30M29 36h22" stroke="#eedaa6" stroke-width="3" stroke-linecap="square"/>
+            <g fill="#eedaa6">
+              <path d="M40 58c0-10 0-20 1-30" stroke="#eedaa6" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M40.4 50c-5.5-.4-9.4-3.2-11.4-8 5.5.4 9.4 3.2 11.4 8z"/>
+              <path d="M40.6 50c5.5-.4 9.4-3.2 11.4-8-5.5.4-9.4 3.2-11.4 8z"/>
+              <path d="M40.7 41c-5-.4-8.6-2.9-10.4-7.3 5 .4 8.6 2.9 10.4 7.3z"/>
+              <path d="M40.9 41c5-.4 8.6-2.9 10.4-7.3-5 .4-8.6 2.9-10.4 7.3z"/>
+              <path d="M41 33c-4.2-.3-7.2-2.4-8.7-6.1 4.2.3 7.2 2.4 8.7 6.1z"/>
+              <path d="M41.2 33c4.2-.3 7.2-2.4 8.7-6.1-4.2.3-7.2 2.4-8.7 6.1z"/>
+              <circle cx="41.2" cy="24.6" r="2.1"/>
+            </g>
           </svg>
           <div class="brand">ALMUS MERCATUS</div>
           <div class="tagline">The Altruistic Mart</div>
-          <div class="virtues">Caritas · Fides · Spes</div>
+          <div class="virtues">Bonitas · Fides · Humanitas</div>
         </nav>
       </div>
     </header>
@@ -235,7 +244,7 @@
         <p class="latin">Almus — kind, nourishing, benevolent <span class="dot" aria-hidden="true">·</span> Mercatus — a market, a mart</p>
         <h1>A market that<br><em>gives back.</em></h1>
         <p class="intro">Almus Mercatus is the altruistic mart — a place to buy and sell where every exchange is meant to leave people a little better off.</p>
-        <blockquote class="verse">“It is more blessed to give than to receive.”<span class="ref">Acts 20 : 35</span></blockquote>
+        <blockquote class="verse">“Wherever there is a human being, there is an opportunity for a kindness.”<span class="ref">Seneca</span></blockquote>
         <!-- TODO(Joshua): replace with your real call to action / shop link -->
         <a class="cta" href="#about">Learn more</a>
       </section>
@@ -264,7 +273,7 @@
     </main>
     <footer>
       <div class="wrap">
-        <div class="motto">Caritas · Fides · Spes</div>
+        <div class="motto">Bonitas · Fides · Humanitas</div>
         © <span id="y"></span> Almus Mercatus · almsmercatus.com <a class="hp" href="/labyrinth.html" aria-hidden="true" tabindex="-1">archive</a>
       </div>
     </footer>
