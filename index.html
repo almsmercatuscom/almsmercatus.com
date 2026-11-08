@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Almus Mercatus — The Altruistic Mart</title>
+  <meta name="description" content="Almus Mercatus is the altruistic mart: a market built to do good with every exchange. Almus — kind, nourishing, benevolent. Mercatus — market.">
+  <style>
+    :root{--ink:#1c2321;--muted:#5b6660;--accent:#2f6b4f;--bg:#fbfaf7;--card:#fff;--line:#e5e0d5}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+    header,main,footer{max-width:960px;margin:0 auto;padding:24px}
+    nav{display:flex;justify-content:space-between;align-items:center}
+    .brand{font-weight:700;letter-spacing:.02em}
+    .hero{padding:72px 24px;text-align:center}
+    .hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.05;margin:.2em 0}
+    .hero p{color:var(--muted);font-size:1.2rem;max-width:640px;margin:16px auto}
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+    h2{margin-top:48px} .latin{font-style:italic;color:var(--muted)} footer{color:var(--muted);border-top:1px solid var(--line);margin-top:64px}
+  </style>
+</head>
+<body>
+  <header><nav><div class="brand">ALMUS MERCATUS</div><div>The Altruistic Mart</div></nav></header>
+  <main>
+    <section class="hero">
+      <p class="latin">Almus — kind, nourishing, benevolent &nbsp;·&nbsp; Mercatus — a market, a mart</p>
+      <h1>A market that<br>gives back.</h1>
+      <p>Almus Mercatus is the altruistic mart — a place to buy and sell where every exchange is meant to leave people a little better off.</p>
+      <!-- TODO(Joshua): replace with your real call to action / shop link -->
+      <a class="cta" href="#about">Learn more</a>
+    </section>
+
+    <section id="about">
+      <h2>Why “altruistic”?</h2>
+      <p>Most markets ask only, “what’s it worth?” We also ask, “who does it help?” Almus Mercatus is being built around generosity as a feature, not an afterthought.</p>
+      <!-- TODO(Joshua): add your concrete model here — e.g. % of proceeds, featured causes, seller pledge. Do not publish a % until you decide it. -->
+    </section>
+
+    <section>
+      <h2>How it will work</h2>
+      <div class="grid">
+        <div class="card"><h3>Shop with purpose</h3><p>Find goods from sellers who share the idea that commerce can be kind.</p></div>
+        <div class="card"><h3>Sell with purpose</h3><p>Offer what you make or find, and be part of a market built on fairness and goodwill.</p></div>
+        <div class="card"><h3>Give with purpose</h3><p>The giving built into each sale will be stated plainly, so you know where it goes.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Coming soon</h2>
+      <p>We’re just getting started. Check back as the first listings, sellers, and causes are added.</p>
+      <!-- TODO(Joshua): add contact email / newsletter signup -->
+    </section>
+  </main>
+  <footer>© <span id="y"></span> Almus Mercatus · almusmercatus.com</footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
