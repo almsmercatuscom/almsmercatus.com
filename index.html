@@ -7,280 +7,600 @@
   <meta name="description" content="Almus Mercatus is the altruistic mart: a market built to do good with every exchange. Almus — kind, nourishing, benevolent. Mercatus — market.">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'none'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <style>
     :root{
-      --ink:#231a0e;
+      --ink:#221a10;
       --muted:#6d5c40;
+      --faint:#8a795a;
       --burgundy:#6d1a2d;
       --burgundy-dark:#521222;
       --gold:#a5813c;
       --gold-soft:#c9ab63;
-      --parchment:#f7f0dc;
+      --paper:#f8f2e1;
+      --paper-2:#f3ead2;
       --card:#fffdf4;
-      --line:#d8c69a;
-      --line-soft:#e6dab8;
+      --line:#ddd0ab;
+      --line-soft:#e8dcba;
+      --nav-h:52px;
       --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
-      --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,"Segoe UI",Roboto,Arial,sans-serif;
     }
     *{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%}
+    html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
     body{
-      margin:0;
-      font-family:var(--serif);
-      font-size:1.0625rem;
-      color:var(--ink);
-      line-height:1.75;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-      /* Backdrop: a wash of gold light over deep burgundy shadow */
-      background-color:#130d06;
-      background-image:
-        radial-gradient(1100px 560px at 50% -8%, rgba(201,171,99,.30), rgba(201,171,99,0) 60%),
-        radial-gradient(820px 520px at 88% 0%, rgba(109,26,45,.38), rgba(109,26,45,0) 55%),
-        radial-gradient(820px 620px at 6% 100%, rgba(109,26,45,.24), rgba(109,26,45,0) 55%),
-        linear-gradient(180deg,#1a1107 0%,#120c05 100%);
-      background-attachment:fixed;
+      margin:0;font-family:var(--serif);font-size:1.0625rem;color:var(--ink);
+      background:var(--paper);line-height:1.65;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
     }
     ::selection{background:#e9d9a8}
-    a{color:var(--burgundy);text-underline-offset:3px}
-    a:hover{color:var(--gold)}
+    a{color:var(--burgundy);text-decoration:none}
+    a:hover{text-decoration:underline;text-underline-offset:3px}
     .hp{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;padding:0;margin:-1px}
     :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+    .wrap{max-width:64rem;margin:0 auto;padding:0 1.5rem}
+    .narrow{max-width:44rem;margin:0 auto;padding:0 1.5rem}
 
-    /* The charter sheet — parchment folio on the dark ground */
-    .sheet{
-      position:relative;
-      max-width:47.5rem;
-      margin:2.75rem auto 3.5rem;
-      background:linear-gradient(180deg,#faf4e1 0%,var(--parchment) 30%,#f3ead0 100%);
-      border:1px solid var(--gold);
-      box-shadow:0 34px 90px rgba(0,0,0,.6),0 4px 20px rgba(0,0,0,.45);
-    }
-    .sheet::before,.sheet::after{
-      content:"";position:absolute;pointer-events:none;
-      border:1px solid var(--line);
-    }
-    .sheet::before{inset:10px}
-    .sheet::after{inset:14px;border-color:var(--line-soft)}
-    .sheet > *{position:relative;z-index:1}
-    .wrap{max-width:40rem;margin:0 auto;padding:0 1.75rem}
-
-    /* Header — crest and inscription */
-    header{padding:3.25rem 0 0}
-    nav{text-align:center;padding-bottom:1.9rem;border-bottom:4px double var(--gold)}
-    .crest{display:block;margin:0 auto 1.1rem}
-    .brand{
-      font-size:1.42rem;font-weight:600;
-      letter-spacing:.34em;text-indent:.34em;
-    }
-    .tagline{font-style:italic;font-size:1.02rem;color:var(--muted);margin-top:.4rem}
-    .virtues{
-      margin-top:1rem;
+    /* ——— Global navigation, Apple-style: one slim bar, everything in reach ——— */
+    .gnav{
+      position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:100;
+      background:rgba(24,16,8,.86);
+      -webkit-backdrop-filter:saturate(160%) blur(16px);backdrop-filter:saturate(160%) blur(16px);
       font-family:var(--sans);
-      font-size:.68rem;font-weight:600;
-      letter-spacing:.42em;text-indent:.42em;text-transform:uppercase;
-      color:var(--gold);
     }
+    .gnav .wrap{display:flex;align-items:center;gap:2rem;height:var(--nav-h);max-width:64rem}
+    .gnav a{color:#f2e8d2;font-size:.78rem;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+    .gnav a:hover{color:#fff;text-decoration:none}
+    .gnav .brandmark{display:flex;align-items:center;gap:.5rem;font-family:var(--serif);font-size:.86rem;letter-spacing:.24em;color:#f6efdb}
+    .gnav .links{display:flex;gap:1.9rem;margin:0 auto}
+    .gnav .tools{display:flex;gap:1.15rem;align-items:center}
+    .gnav button{background:none;border:0;padding:.25rem;cursor:pointer;color:#f2e8d2;display:flex}
+    .gnav button:hover{color:#fff}
+    .gnav .burger{display:none}
+    @media (max-width:760px){ .gnav .links{display:none} .gnav .burger{display:flex} .gnav .wrap{gap:1rem} }
 
-    /* Hero */
-    .hero{padding:4.75rem 0 4.5rem;text-align:center}
-    .latin{font-style:italic;font-size:1.02rem;color:var(--muted);margin:0 0 2rem}
-    .latin .dot{color:var(--gold);font-style:normal;padding:0 .35em}
+    /* Search overlay + list panel + mobile menu */
+    .sheet-panel{
+      position:fixed;inset:var(--nav-h) 0 auto 0;z-index:99;display:none;
+      background:rgba(24,16,8,.97);color:#f2e8d2;font-family:var(--sans);
+      padding:1.75rem 0 2.25rem;
+    }
+    .sheet-panel.open{display:block}
+    .sheet-panel .narrow{max-width:40rem}
+    .sheet-panel input{
+      width:100%;background:transparent;border:0;border-bottom:1px solid #6b5a38;
+      color:#fff;font-size:1.35rem;padding:.5rem 0;font-family:var(--serif);
+    }
+    .sheet-panel input:focus{outline:none;border-bottom-color:var(--gold-soft)}
+    .sheet-panel .res{margin-top:1.25rem;display:grid;gap:.35rem}
+    .sheet-panel .res a{color:#e9dcba;font-size:1rem;padding:.45rem .6rem;border-radius:8px}
+    .sheet-panel .res a:hover{background:rgba(201,171,99,.14);text-decoration:none;color:#fff}
+    .sheet-panel .res small{display:block;color:#a68f5f;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    .sheet-panel p{color:#cbbd97}
+    .sheet-panel nav{display:grid;gap:.9rem;font-size:1.3rem}
+    .sheet-panel nav a{color:#f2e8d2;font-family:var(--serif)}
+
+    main{padding-top:var(--nav-h)}
+
+    /* ——— Hero: one idea, said once, said big ——— */
+    .hero{padding:6.5rem 0 5.5rem;text-align:center}
+    .eyebrow{
+      font-family:var(--sans);font-size:.74rem;font-weight:600;
+      letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin:0 0 1.4rem;
+    }
     h1{
-      font-weight:500;
-      font-size:clamp(2.6rem,7vw,4.25rem);
-      line-height:1.1;letter-spacing:.005em;
-      margin:0 0 1.75rem;
+      font-weight:500;font-size:clamp(2.9rem,7.5vw,4.9rem);
+      line-height:1.04;letter-spacing:-.01em;margin:0 0 1.6rem;
     }
     h1 em{font-style:italic;color:var(--burgundy)}
-    .hero .intro{
-      color:var(--muted);font-size:1.15rem;line-height:1.7;
-      max-width:35rem;margin:0 auto 2.5rem;
+    .hero .sub{
+      color:var(--muted);font-size:clamp(1.12rem,2.4vw,1.35rem);line-height:1.55;
+      max-width:37rem;margin:0 auto 2.4rem;
     }
-    .verse{
-      max-width:31rem;margin:0 auto 2.75rem;
-      padding:1.15rem 0;
-      border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-      font-style:italic;font-size:1.09rem;
+    .cta-row{display:flex;gap:1.9rem;justify-content:center;align-items:center;flex-wrap:wrap}
+    .btn{
+      display:inline-block;background:var(--burgundy);color:#fdf6dd!important;
+      font-family:var(--sans);font-size:.86rem;font-weight:600;letter-spacing:.05em;
+      padding:.85rem 1.9rem;border-radius:999px;text-decoration:none!important;
+      border:1px solid var(--gold);transition:background-color .25s ease;
     }
-    .verse .ref{
-      display:block;margin-top:.45rem;
-      font-style:normal;font-family:var(--sans);
-      font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
-      color:var(--gold);
+    .btn:hover{background:var(--burgundy-dark)}
+    .more{font-size:1.02rem}
+    .more::after{content:" ›";color:var(--gold)}
+    .hero .seneca{
+      margin:3.2rem auto 0;max-width:31rem;font-style:italic;color:var(--faint);font-size:1rem;
     }
-    .cta{
-      display:inline-block;
-      background:var(--burgundy);color:#fdf6dd;
-      border:1px solid var(--gold);
-      font-family:var(--sans);
-      font-size:.8rem;font-weight:600;
-      letter-spacing:.18em;text-transform:uppercase;
-      padding:.95rem 2.2rem;border-radius:2px;
-      text-decoration:none;
-      box-shadow:0 6px 18px rgba(82,18,34,.28);
-      transition:background-color .25s ease;
-    }
-    .cta:hover{background:var(--burgundy-dark);color:#fdf6dd}
+    .hero .seneca span{display:block;font-style:normal;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-top:.45rem}
 
-    /* Sections — numbered in Roman, like chapters of a charter */
-    main{counter-reset:chapter}
-    section{padding:3.5rem 0 0}
-    section + section{margin-top:3.5rem;border-top:1px solid var(--line-soft);padding-top:3.5rem}
+    /* ——— Sections: Apple rhythm, one idea each ——— */
+    section{padding:5.5rem 0}
+    section.alt{background:linear-gradient(180deg,var(--paper-2),var(--paper))}
+    section.dark{
+      background:
+        radial-gradient(900px 480px at 50% -10%, rgba(201,171,99,.22), rgba(201,171,99,0) 60%),
+        linear-gradient(180deg,#241207,#180e05);
+      color:#f0e6cb;
+    }
+    section.dark .sub, section.dark p{color:#cdbd93}
     h2{
-      font-weight:600;
-      font-size:1.26rem;line-height:1.3;
-      letter-spacing:.16em;text-transform:uppercase;
-      margin:0 0 1.4rem;
+      font-weight:500;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.12;
+      letter-spacing:-.005em;margin:0 0 1.1rem;text-align:center;
     }
-    section:not(.hero) h2::before{
-      counter-increment:chapter;
-      content:counter(chapter,upper-roman) " · ";
-      color:var(--gold);
+    h2 em{font-style:italic;color:var(--burgundy)}
+    section.dark h2 em{color:var(--gold-soft)}
+    .lede{
+      text-align:center;color:var(--muted);font-size:1.14rem;line-height:1.6;
+      max-width:38rem;margin:0 auto;
     }
-    h2::after{content:"";display:block;width:3rem;height:2px;background:var(--gold);margin-top:.8rem}
-    section p{margin:0 0 1.1rem;max-width:37rem}
-    section p:last-child{margin-bottom:0}
+
+    /* ——— The live room (Whatnot, minus the games) ——— */
+    .room{
+      margin:3rem auto 0;max-width:56rem;
+      background:var(--card);border:1px solid var(--line);border-radius:20px;
+      box-shadow:0 24px 60px rgba(101,78,32,.14);
+      display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;text-align:left;
+    }
+    @media (max-width:820px){ .room{grid-template-columns:1fr} }
+    .stage{
+      position:relative;padding:2.2rem;min-height:19rem;
+      background:
+        radial-gradient(420px 260px at 50% 0%, rgba(201,171,99,.30), rgba(201,171,99,0) 65%),
+        linear-gradient(180deg,#2a1607,#1c1006);
+      color:#f0e6cb;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.9rem;
+    }
+    .badge{
+      font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.3em;
+      color:#1c1006;background:var(--gold-soft);padding:.32rem .8rem;border-radius:999px;text-transform:uppercase;
+    }
+    .stage .clock{font-size:2.6rem;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+    .stage .clock small{display:block;font-size:.72rem;font-family:var(--sans);letter-spacing:.28em;text-transform:uppercase;color:#b39b5e;margin-top:.5rem}
+    .stage p{color:#cdbd93;font-size:.98rem;max-width:21rem;margin:0}
+    .lotbox{padding:2rem 2.2rem}
+    .lotbox h3{font-size:1.3rem;font-weight:600;margin:.1rem 0 .4rem}
+    .lotbox .note{color:var(--muted);font-size:.97rem;margin:0 0 1.4rem}
+    .pricerow{display:flex;gap:2.2rem;margin-bottom:1.3rem}
+    .pricerow .k{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+    .pricerow .v{font-size:1.55rem;font-weight:600;font-variant-numeric:tabular-nums}
+    .bidrow{display:flex;gap:.6rem;flex-wrap:wrap}
+    .bidrow input{
+      flex:1 1 8.5rem;font:inherit;font-size:1.05rem;padding:.62rem .8rem;
+      border:1px solid var(--line);border-radius:10px;background:#fffef9;color:var(--ink);
+    }
+    .chip{
+      font-family:var(--sans);font-size:.8rem;font-weight:600;cursor:pointer;
+      border:1px solid var(--line);background:var(--paper);color:var(--burgundy);
+      padding:.55rem .8rem;border-radius:999px;
+    }
+    .chip:hover{border-color:var(--gold)}
+    .bidbtn{
+      font-family:var(--sans);font-size:.88rem;font-weight:600;cursor:pointer;
+      background:var(--burgundy);color:#fdf6dd;border:1px solid var(--gold);
+      padding:.68rem 1.5rem;border-radius:999px;
+    }
+    .bidbtn:hover{background:var(--burgundy-dark)}
+    .ghostbtn{
+      font-family:var(--sans);font-size:.82rem;cursor:pointer;background:none;
+      border:1px solid var(--line);color:var(--muted);padding:.6rem 1.1rem;border-radius:999px;
+    }
+    .feedback{min-height:1.5rem;font-size:.95rem;margin:.85rem 0 0;color:var(--burgundy)}
+    .log{
+      margin-top:1.1rem;border-top:1px solid var(--line-soft);padding-top:.9rem;
+      font-size:.9rem;color:var(--muted);max-height:9.5rem;overflow:auto;white-space:pre-line;
+    }
+    .fairclose{margin-top:1rem;font-size:.86rem;color:var(--faint);font-style:italic}
+    .engine-note{margin-top:1.6rem;text-align:center;font-family:var(--sans);font-size:.74rem;letter-spacing:.05em;color:var(--faint)}
+
+    /* ——— Explore tiles ——— */
+    .rail-search{max-width:30rem;margin:2.6rem auto 0}
+    .rail-search input{
+      width:100%;font:inherit;font-size:1.02rem;padding:.75rem 1.1rem;border-radius:999px;
+      border:1px solid var(--line);background:var(--card);color:var(--ink);
+    }
+    .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2.6rem}
+    @media (max-width:700px){ .tiles{grid-template-columns:1fr} }
+    .tile{
+      background:var(--card);border:1px solid var(--line);border-radius:18px;
+      padding:2.3rem 2.1rem;box-shadow:0 10px 28px rgba(101,78,32,.07);
+    }
+    .tile .rn{font-size:.8rem;font-weight:600;letter-spacing:.4em;color:var(--gold);display:block;margin-bottom:.9rem}
+    .tile h3{font-size:1.45rem;font-weight:600;margin:0 0 .5rem}
+    .tile p{color:var(--muted);margin:0 0 1rem;font-size:1rem}
+    .tile.hide{display:none}
+
+    /* ——— How a show works ——— */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem;margin-top:3rem;text-align:left}
+    @media (max-width:760px){ .steps{grid-template-columns:1fr} }
+    .step .n{font-size:2rem;color:var(--gold);font-weight:500}
+    .step h3{font-size:1.2rem;font-weight:600;margin:.4rem 0 .4rem}
+    .step p{color:var(--muted);margin:0;font-size:.99rem}
+
+    /* ——— Giving statement ——— */
+    .statement{font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.35;text-align:center;max-width:42rem;margin:0 auto;font-weight:500}
+    .statement em{font-style:italic;color:var(--gold-soft)}
+    section.dark .fineprint{text-align:center;margin-top:2rem;font-size:.98rem}
+
+    /* ——— About ——— */
     .dropcap::first-letter{
-      float:left;
-      font-size:3.4em;line-height:.82;
-      padding:.06em .14em 0 0;
+      float:left;font-size:3.3em;line-height:.82;padding:.06em .14em 0 0;
       color:var(--burgundy);font-weight:600;
     }
+    .prose p{font-size:1.1rem;line-height:1.75;margin:0 auto 1.2rem;max-width:38rem}
 
-    /* How it will work — arched niches with Roman numerals */
-    .grid{
-      display:grid;grid-template-columns:repeat(3,1fr);
-      gap:1.6rem;margin-top:2.25rem;
-      counter-reset:niche;
-    }
-    .card{
-      background:linear-gradient(180deg,var(--card),#fbf5e2);
-      border:1px solid var(--line);
-      border-radius:999px 999px 6px 6px;
-      padding:2.9rem 1.3rem 1.65rem;
-      text-align:center;
-      box-shadow:0 10px 26px rgba(101,78,32,.10);
-    }
-    .card h3{font-weight:600;font-size:1.11rem;line-height:1.3;margin:0 0 .55rem}
-    .card h3::before{
-      counter-increment:niche;
-      content:counter(niche,upper-roman);
-      display:block;
-      font-size:.82rem;font-weight:600;
-      letter-spacing:.4em;text-indent:.4em;
-      color:var(--gold);
-      margin-bottom:.9rem;
-    }
-    .card p{font-size:.97rem;color:var(--muted);margin:0 auto}
-
-    /* Footer */
+    /* ——— Footer ——— */
     footer{
-      margin-top:5.5rem;
-      border-top:4px double var(--gold);
-      padding:2.1rem 0 2.9rem;
-      text-align:center;
-      font-size:.9rem;color:var(--muted);
+      border-top:1px solid var(--line);background:var(--paper-2);
+      padding:2.6rem 0 3rem;font-size:.9rem;color:var(--muted);
     }
-    footer .motto{
-      font-family:var(--sans);
-      font-size:.72rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;
-      color:var(--gold);margin-bottom:.6rem;
-    }
+    footer .cols{display:flex;gap:2rem;flex-wrap:wrap;justify-content:space-between;align-items:baseline}
+    footer .motto{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+    footer a{color:var(--muted)}
 
-    /* Gentle entrance, only for those who welcome motion */
     @media (prefers-reduced-motion: no-preference){
-      .sheet{animation:rise .9s ease-out both}
+      main{animation:rise .8s ease-out both}
       @keyframes rise{from{opacity:0}to{opacity:1}}
     }
-
-    /* Small screens */
     @media (max-width:640px){
-      .sheet{margin:1rem .6rem 1.5rem}
-      .sheet::before{inset:7px}
-      .sheet::after{inset:10px}
-      .hero{padding:3.5rem 0 3.25rem}
-      .grid{grid-template-columns:1fr;gap:1.4rem}
-      .card{border-radius:150px 150px 6px 6px;padding-top:2.3rem}
-      section + section{margin-top:3rem;padding-top:3rem}
-      section{padding-top:3rem}
-      .brand{font-size:1.08rem}
-      .virtues{letter-spacing:.3em;text-indent:.3em}
-      footer{margin-top:4rem}
+      .hero{padding:4.5rem 0 4rem}
+      section{padding:4rem 0}
+      .stage{min-height:15rem}
     }
   </style>
 </head>
 <body>
-  <div class="sheet">
-    <header>
-      <div class="wrap">
-        <nav>
-          <svg class="crest" width="76" height="76" viewBox="0 0 80 80" role="img" aria-label="Crest of Almus Mercatus: an olive branch within a radiant ring">
-            <g stroke="#a5813c" stroke-width="1.6" stroke-linecap="round">
-              <path d="M40 2v6M40 72v6M2 40h6M72 40h6M13.2 13.2l4.2 4.2M62.6 62.6l4.2 4.2M66.8 13.2l-4.2 4.2M17.4 62.6l-4.2 4.2"/>
-            </g>
-            <circle cx="40" cy="40" r="29" fill="#6d1a2d" stroke="#a5813c" stroke-width="1.6"/>
-            <circle cx="40" cy="40" r="24.5" fill="none" stroke="#c9ab63" stroke-width=".8"/>
-            <g fill="#eedaa6">
-              <path d="M40 58c0-10 0-20 1-30" stroke="#eedaa6" stroke-width="2" fill="none" stroke-linecap="round"/>
-              <path d="M40.4 50c-5.5-.4-9.4-3.2-11.4-8 5.5.4 9.4 3.2 11.4 8z"/>
-              <path d="M40.6 50c5.5-.4 9.4-3.2 11.4-8-5.5.4-9.4 3.2-11.4 8z"/>
-              <path d="M40.7 41c-5-.4-8.6-2.9-10.4-7.3 5 .4 8.6 2.9 10.4 7.3z"/>
-              <path d="M40.9 41c5-.4 8.6-2.9 10.4-7.3-5 .4-8.6 2.9-10.4 7.3z"/>
-              <path d="M41 33c-4.2-.3-7.2-2.4-8.7-6.1 4.2.3 7.2 2.4 8.7 6.1z"/>
-              <path d="M41.2 33c4.2-.3 7.2-2.4 8.7-6.1-4.2.3-7.2 2.4-8.7 6.1z"/>
-              <circle cx="41.2" cy="24.6" r="2.1"/>
-            </g>
-          </svg>
-          <div class="brand">ALMUS MERCATUS</div>
-          <div class="tagline">The Altruistic Mart</div>
-          <div class="virtues">Bonitas · Fides · Humanitas</div>
-        </nav>
+  <div class="gnav" role="navigation" aria-label="Global">
+    <div class="wrap">
+      <a class="brandmark" href="#top" aria-label="Almus Mercatus — home">
+        <svg width="17" height="17" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="30" fill="#6d1a2d" stroke="#c9ab63" stroke-width="3"/><g fill="#eedaa6"><path d="M40.4 52c-6-.4-10.2-3.4-12.4-8.6 6 .4 10.2 3.4 12.4 8.6z"/><path d="M40.6 52c6-.4 10.2-3.4 12.4-8.6-6 .4-10.2 3.4-12.4 8.6z"/><path d="M41 42c-4.6-.3-7.9-2.6-9.6-6.7 4.6.3 7.9 2.6 9.6 6.7z"/><path d="M41.2 42c4.6-.3 7.9-2.6 9.6-6.7-4.6.3-7.9 2.6-9.6 6.7z"/><path d="M41.2 60V30" stroke="#eedaa6" stroke-width="2.4"/></g></svg>
+        ALMUS&nbsp;MERCATUS
+      </a>
+      <div class="links">
+        <a href="#live">Live</a>
+        <a href="#explore">Explore</a>
+        <a href="#how">How it works</a>
+        <a href="#giving">Giving</a>
+        <a href="#about">About</a>
       </div>
-    </header>
-    <main class="wrap">
-      <section class="hero">
-        <p class="latin">Almus — kind, nourishing, benevolent <span class="dot" aria-hidden="true">·</span> Mercatus — a market, a mart</p>
-        <h1>A market that<br><em>gives back.</em></h1>
-        <p class="intro">Almus Mercatus is the altruistic mart — a place to buy and sell where every exchange is meant to leave people a little better off.</p>
-        <blockquote class="verse">“Wherever there is a human being, there is an opportunity for a kindness.”<span class="ref">Seneca</span></blockquote>
-        <!-- TODO(Joshua): replace with your real call to action / shop link -->
-        <a class="cta" href="#about">Learn more</a>
-      </section>
-
-      <section id="about">
-        <h2>Why “altruistic”?</h2>
-        <p class="dropcap">Most markets ask only, “what’s it worth?” We also ask, “who does it help?” Almus Mercatus is being built around generosity as a feature, not an afterthought.</p>
-        <!-- TODO(Joshua): add your concrete model here — e.g. % of proceeds, featured causes, seller pledge. Do not publish a % until you decide it. -->
-      </section>
-
-      <section>
-        <h2>How it will work</h2>
-        <div class="grid">
-          <div class="card"><h3>Shop with purpose</h3><p>Find goods from sellers who share the idea that commerce can be kind.</p></div>
-          <div class="card"><h3>Sell with purpose</h3><p>Offer what you make or find, and be part of a market built on fairness and goodwill.</p></div>
-          <div class="card"><h3>Give with purpose</h3><p>The giving built into each sale will be stated plainly, so you know where it goes.</p></div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Coming soon</h2>
-        <p>We’re just getting started. Check back as the first listings, sellers, and causes are added.</p>
-        <p>Questions or ideas in the meantime? Write to <span id="contact-email"><noscript>joshua.foraker [at] almsmercatus [dot] com</noscript></span>.</p>
-        <!-- TODO(Joshua): add newsletter signup -->
-      </section>
-    </main>
-    <footer>
-      <div class="wrap">
-        <div class="motto">Bonitas · Fides · Humanitas</div>
-        © <span id="y"></span> Almus Mercatus · almsmercatus.com <a class="hp" href="/labyrinth.html" aria-hidden="true" tabindex="-1">archive</a>
+      <div class="tools">
+        <button id="searchBtn" aria-label="Search the mart">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+        <button id="listBtn" aria-label="Your list">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11M2.5 8h11M2.5 12.5h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="5.4" cy="3.5" r="1.25" fill="currentColor"/><circle cx="10.6" cy="8" r="1.25" fill="currentColor"/><circle cx="5.4" cy="12.5" r="1.25" fill="currentColor"/></svg>
+        </button>
+        <button class="burger" id="menuBtn" aria-label="Menu">
+          <svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 4h13M1.5 8h13M1.5 12h13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
       </div>
-    </footer>
+    </div>
   </div>
+
+  <div class="sheet-panel" id="searchPanel" aria-hidden="true">
+    <div class="narrow">
+      <input id="searchInput" type="search" placeholder="Search the mart" autocomplete="off">
+      <div class="res" id="searchResults"></div>
+    </div>
+  </div>
+  <div class="sheet-panel" id="listPanel" aria-hidden="true">
+    <div class="narrow">
+      <p style="margin-top:0">Your list is empty. When shows begin, the ones you follow will wait for you here — no noise, nothing you didn’t ask for.</p>
+      <p><a href="#live" data-close style="color:#e9dcba">Preview the live room ›</a></p>
+    </div>
+  </div>
+  <div class="sheet-panel" id="menuPanel" aria-hidden="true">
+    <div class="narrow">
+      <nav>
+        <a href="#live" data-close>Live</a>
+        <a href="#explore" data-close>Explore</a>
+        <a href="#how" data-close>How it works</a>
+        <a href="#giving" data-close>Giving</a>
+        <a href="#about" data-close>About</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero" style="padding-top:4.5rem">
+      <div class="narrow">
+        <p class="eyebrow">Almus Mercatus · The Altruistic Mart</p>
+        <h1>A market that<br><em>gives back.</em></h1>
+        <p class="sub">Live shows. Honest selling. Giving stated plainly. A marketplace built on a simple idea — every exchange should leave someone better off.</p>
+        <div class="cta-row">
+          <a class="btn" href="#live">Preview a live show</a>
+          <a class="more" href="#how">How it works</a>
+        </div>
+        <p class="seneca">“Wherever there is a human being, there is an opportunity for a kindness.”<span>Seneca</span></p>
+      </div>
+    </section>
+
+    <section class="alt" id="live">
+      <div class="wrap">
+        <p class="eyebrow" style="text-align:center">Live</p>
+        <h2>Live, <em>without the games.</em></h2>
+        <p class="lede">No sniping — a bid near the close extends the round. No fine print — the giving is stated before the first bid. Try the room; it runs exactly as a real show will.</p>
+
+        <div class="room">
+          <div class="stage">
+            <span class="badge">Preview room</span>
+            <svg width="64" height="64" viewBox="0 0 80 80" aria-hidden="true"><g stroke="#a5813c" stroke-width="1.6" stroke-linecap="round"><path d="M40 2v6M40 72v6M2 40h6M72 40h6M13.2 13.2l4.2 4.2M62.6 62.6l4.2 4.2M66.8 13.2l-4.2 4.2M17.4 62.6l-4.2 4.2"/></g><circle cx="40" cy="40" r="29" fill="#6d1a2d" stroke="#a5813c" stroke-width="1.6"/><circle cx="40" cy="40" r="24.5" fill="none" stroke="#c9ab63" stroke-width=".8"/><g fill="#eedaa6"><path d="M40 58c0-10 0-20 1-30" stroke="#eedaa6" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M40.4 50c-5.5-.4-9.4-3.2-11.4-8 5.5.4 9.4 3.2 11.4 8z"/><path d="M40.6 50c5.5-.4 9.4-3.2 11.4-8-5.5.4-9.4 3.2-11.4 8z"/><path d="M40.7 41c-5-.4-8.6-2.9-10.4-7.3 5 .4 8.6 2.9 10.4 7.3z"/><path d="M40.9 41c5-.4 8.6-2.9 10.4-7.3-5 .4-8.6 2.9-10.4 7.3z"/><path d="M41 33c-4.2-.3-7.2-2.4-8.7-6.1 4.2.3 7.2 2.4 8.7 6.1z"/><path d="M41.2 33c4.2-.3 7.2-2.4 8.7-6.1-4.2.3-7.2 2.4-8.7 6.1z"/><circle cx="41.2" cy="24.6" r="2.1"/></g></svg>
+            <div class="clock"><span id="lotClock">2:00</span><small>left in the round</small></div>
+            <p>This is a working preview. When the first seller goes live, their show opens here — the bidding below already runs by the real rules.</p>
+          </div>
+          <div class="lotbox">
+            <h3>The opening lot</h3>
+            <p class="note">A demonstration lot, so you can feel a round before the first real one. Nothing here is for sale — yet.</p>
+            <div class="pricerow">
+              <div><div class="k">Current bid</div><div class="v" id="lotPrice">$1.00</div></div>
+              <div><div class="k">Bids</div><div class="v" id="lotBids">0</div></div>
+              <div><div class="k">Giving</div><div class="v" style="font-size:1.05rem;padding-top:.45rem">Stated on every lot</div></div>
+            </div>
+            <div class="bidrow">
+              <input id="bidInput" type="number" min="0" step="1" placeholder="Your bid (USD)" inputmode="decimal">
+              <button class="chip" data-step="1">+$1</button>
+              <button class="chip" data-step="5">+$5</button>
+              <button class="chip" data-step="10">+$10</button>
+              <button class="bidbtn" id="bidBtn">Place bid</button>
+            </div>
+            <p class="feedback" id="bidFeedback" role="status"></p>
+            <div class="log" id="lotLog">Starting the room…</div>
+            <p class="fairclose">Fair close: any bid in the final 10 seconds extends the round to 10 seconds. Nobody loses a lot to a faster finger.</p>
+            <div style="display:flex;gap:.6rem;margin-top:1.1rem;flex-wrap:wrap">
+              <button class="ghostbtn" id="resetBtn">Restart the round</button>
+              <button class="ghostbtn" id="notifyBtn">Tell me when real shows begin</button>
+            </div>
+          </div>
+        </div>
+        <p class="engine-note" id="engineNote">The room’s rules — clock, bids, fair close — run on a small engine written in C. Nothing you do here is collected or sent anywhere.</p>
+      </div>
+    </section>
+
+    <section id="explore">
+      <div class="wrap">
+        <p class="eyebrow" style="text-align:center">Explore</p>
+        <h2>Three ways in. <em>One standard.</em></h2>
+        <p class="lede">Everything at the mart is held to the same measure: would this leave someone better off?</p>
+        <div class="rail-search"><input id="exploreSearch" type="search" placeholder="Filter — try “give” or “sell”" autocomplete="off"></div>
+        <div class="tiles" id="tiles">
+          <article class="tile" data-search="shop buy goods sellers kind commerce shop with purpose">
+            <span class="rn">I</span>
+            <h3>Shop with purpose</h3>
+            <p>Find goods from sellers who share the idea that commerce can be kind.</p>
+            <a class="more" href="#live">See how shows work</a>
+          </article>
+          <article class="tile" data-search="sell offer make find market fairness goodwill sell with purpose">
+            <span class="rn">II</span>
+            <h3>Sell with purpose</h3>
+            <p>Offer what you make or find, and be part of a market built on fairness and goodwill.</p>
+            <a class="more" href="#how">How selling will work</a>
+          </article>
+          <article class="tile" data-search="give giving proceeds sale plainly stated give with purpose">
+            <span class="rn">III</span>
+            <h3>Give with purpose</h3>
+            <p>The giving built into each sale will be stated plainly, so you know where it goes.</p>
+            <a class="more" href="#giving">The giving standard</a>
+          </article>
+          <article class="tile" data-search="why altruistic meaning latin almus mercatus nourishing market about">
+            <span class="rn">IV</span>
+            <h3>Why “altruistic”?</h3>
+            <p>Almus — kind, nourishing, benevolent. Mercatus — a market, a mart. The name is the mission.</p>
+            <a class="more" href="#about">The story</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="how">
+      <div class="wrap">
+        <p class="eyebrow" style="text-align:center">How it works</p>
+        <h2>Simple, <em>on purpose.</em></h2>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><h3>Watch</h3><p>Sellers host their shows live. You see the goods, the seller, and the giving — all before the first bid.</p></div>
+          <div class="step"><div class="n">2</div><h3>Bid fair</h3><p>Rounds run on a fair-close clock. Late bids extend the round, so lots are won by wanting them, not by gaming the last second.</p></div>
+          <div class="step"><div class="n">3</div><h3>See the giving</h3><p>Every lot states its giving up front, in plain words. When a sale closes, you know exactly what it did.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="giving">
+      <div class="wrap">
+        <p class="eyebrow" style="text-align:center">Giving</p>
+        <p class="statement">“The giving built into each sale will be stated plainly, <em>so you know where it goes.</em>”</p>
+        <p class="fineprint">That is the whole policy, and it will not grow fine print. The precise model is being set now — and when it is chosen, it will be printed here in one sentence.</p>
+        <!-- TODO(Joshua): add your concrete model here — e.g. % of proceeds, featured causes, seller pledge. Do not publish a % until you decide it. -->
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="narrow prose">
+        <p class="eyebrow" style="text-align:center">About</p>
+        <h2>Why <em>“altruistic”?</em></h2>
+        <p class="dropcap" style="margin-top:2.2rem">Most markets ask only, “what’s it worth?” We also ask, “who does it help?” Almus Mercatus is being built around generosity as a feature, not an afterthought.</p>
+        <p>We’re just getting started. The first shows, sellers, and listings are being prepared now — and the door opens when they’re ready to be proud of.</p>
+        <p>Questions or ideas in the meantime? Write to <span id="contact-email"><noscript>joshua.foraker [at] almsmercatus [dot] com</noscript></span>.</p>
+        <!-- TODO(Joshua): replace the hero call to action with your real shop link when the first shows are scheduled -->
+        <!-- TODO(Joshua): add newsletter signup -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <div class="motto">Bonitas · Fides · Humanitas</div>
+          <div style="margin-top:.5rem">© <span id="y"></span> Almus Mercatus · almsmercatus.com <a class="hp" href="/labyrinth.html" aria-hidden="true" tabindex="-1">archive</a></div>
+        </div>
+        <div style="display:flex;gap:1.6rem;font-family:var(--sans);font-size:.82rem">
+          <a href="#live">Live</a><a href="#explore">Explore</a><a href="#giving">Giving</a><a href="#about">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script>
-  document.getElementById('y').textContent=new Date().getFullYear();
-  (function(){var u='joshua'+'.'+'foraker',d='almsmercatus'+'.'+'com',a=document.createElement('a');a.href='mai'+'lto:'+u+'@'+d;a.textContent=u+'@'+d;var s=document.getElementById('contact-email');if(s){s.appendChild(a);}})();
+  document.getElementById('y').textContent = new Date().getFullYear();
+  (function () {
+    "use strict";
+    /* ——— Panels (Apple-style sheets under the global nav) ——— */
+    var panels = { search: 'searchPanel', list: 'listPanel', menu: 'menuPanel' };
+    function closeAll() {
+      Object.keys(panels).forEach(function (k) {
+        var p = document.getElementById(panels[k]);
+        p.classList.remove('open'); p.setAttribute('aria-hidden', 'true');
+      });
+    }
+    function toggle(id) {
+      var p = document.getElementById(id), was = p.classList.contains('open');
+      closeAll();
+      if (!was) { p.classList.add('open'); p.setAttribute('aria-hidden', 'false'); }
+      return !was;
+    }
+    document.getElementById('searchBtn').addEventListener('click', function () {
+      if (toggle('searchPanel')) document.getElementById('searchInput').focus();
+    });
+    document.getElementById('listBtn').addEventListener('click', function () { toggle('listPanel'); });
+    document.getElementById('menuBtn').addEventListener('click', function () { toggle('menuPanel'); });
+    document.querySelectorAll('[data-close]').forEach(function (a) {
+      a.addEventListener('click', closeAll);
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+
+    /* ——— Contact address: assembled by the C engine when it loads;
+           the fallback below assembles the same address in the loader. ——— */
+    function renderContact(addr) {
+      var s = document.getElementById('contact-email');
+      if (!s || s.querySelector('a')) return;
+      var a = document.createElement('a');
+      a.href = 'mailto:' + addr; a.textContent = addr;
+      s.textContent = ''; s.appendChild(a);
+    }
+    function fallbackContact() {
+      renderContact('joshua' + '.' + 'foraker' + '@' + 'almsmercatus' + '.' + 'com');
+    }
+
+    /* ——— The C11 engine (src/app.c), compiled to WebAssembly.
+           The base64 below is that module; this loader only starts it
+           and moves data between the page and the C functions. ——— */
+    var WASM_B64 = "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BQNAIAIgBSADaiIEQQNqLQAAOgAAIAJBAWogBEECai0AADoAACACQQJqIARBAWotAAA6AAAgAkEDaiAELQAAOgAAIAJBBGohAiADQXxqIgMNAAsLIAJBADoAACABQX9qIQIDQCACQQFqIgItAAANAAsgAkEuOwAAIAFBf2ohAwNAIANBAWoiAy0AAA0AC0EAIQIgA0ECakEAOgAAIAMgAEHkAHAiBEEKbiIFQTByOgAAIANBAWogBCAFQQpsa0EwcjoAAANAIAEgAmohAyACQQFqIgQhAiADLQAADQALIAEgBGoiA0EVakEAOgAAIANBE2pB9NwAOwAAIANBD2pB5cCw+wY2AAAgA0EHakKg0L3jxoyIuugANwAAQX8hAiADQX9qQqDEg6SJpN639QA3AAADQCACQfGJgIAAaiEDIAJBAWoiBCECIAMtAAANAAsCQCAEQYE8SQ0AQQAhAwJAQQAtAPCpgIAAIgRFDQBBACECA0AgAkHwiYCAAGogBDoAACACQQFqIQMgAkH9H0sNASACQfGpgIAAaiEEIAMhAiAELQAAIgRB/wFxDQALCyADQfCJgIAAakEAOgAAC0HviYCAACECA0AgAkEBaiICLQAADQALQQAhBQJAIAEtAAAiBEUNACABQQFyIQZBACEDA0AgAiADaiAEOgAAIAYgA2ohASADQQFqIgUhAyABLQAAIgQNAAsLIAIgBWpBADoAAEHviYCAACECA0AgAkEBaiICLQAADQALIAJBCjsAAEEAIQILIAILiBIBB38jgICAgABB8ABrIQACQEEALQDciYCAAA0AAkBBACgC1ImAgAAiAUEBSA0AQQAgAUF/aiIBNgLUiYCAAAsCQCABDQBBAEEBOgDciYCAAEEALQDgiYCAACECQX8hAQNAIAFB8YmAgABqIQAgAUEBaiIDIQEgAC0AAA0ACyACQQFxIQICQCADQYE8SQ0AQQAhAAJAQQAtAPCpgIAAIgNFDQBBACEBA0AgAUHwiYCAAGogAzoAACABQQFqIQAgAUH9H0sNASABQfGpgIAAaiEDIAAhASADLQAAIgNB/wFxDQALCyAAQfCJgIAAakEAOgAAC0H8iICAAEG+iICAACACGyEAQe+JgIAAIQEDQCABQQFqIgEtAAANAAtBACECAkAgAC0AACIDRQ0AIABBAWohBEEAIQADQCABIABq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/xADAADnAAAA7gAAAAMAEQCfAAAAAAAAAAD/////EAMAAP0AAAAEAQAAAwARAJ8EAQAAEAEAAAMAEQGfAAAAAAAAAAD/////EAMAAAQBAAAQAQAAAwARAJ9BAQAAUwEAAAQA7QAEn1MBAABVAQAAAwARAJ9VAQAAYAEAAAMAEQGftwEAAMABAAAEAO0AA58jAgAAJQIAAAQA7QIAnyUCAAAnAgAABADtAAOfAAAAAAAAAAD/////EAMAAC4BAAAwAQAABADtAgKfMAEAAEEBAAAEAO0AA58AAAAAAAAAAP////8QAwAAsAEAAMABAAAEAO0AAp8eAgAAJwIAAAQA7QACnwAAAAAAAAAA/////xADAAAwAgAANwIAAAMAEQCfAAAAAAAAAAD/////EAMAAEYCAABNAgAAAwARAJ9NAgAAVAIAAAMAEQGfAAAAAAAAAAD/////EAMAAHkCAAB7AgAABADtAgGfewIAAJkCAAAEAO0ABJ8AAAAAAAAAAP////8QAwAATQIAAFQCAAADABEAnwAAAAAAAAAA/////xADAACnAgAAqQIAAAQA7QIAn6kCAAAGAwAABADtAASfAAAAAAAAAAD/////EAMAALMCAADCAgAAAwARFp/CAgAAzgIAAAMAERSfzgIAANwCAAADABEQn9wCAAAGAwAAAwARCJ8AAAAAAAAAAP////8QAwAALgMAAEYDAAADABEAn10DAACBAwAABADtAAOfAAAAAAAAAAD/////EAMAAKkDAADEAwAAAwARAJ/cAwAA3gMAAAQA7QIAn94DAADpAwAABADtAAWfAAAAAAAAAAD/////EAMAAAwEAAATBAAAAwARAJ8TBAAAFwQAAAMAEQGfAAAAAAAAAAD/////LQcAAAMBAAA1AQAABADtAACfAAAAAAAAAAD/////LQcAAI4AAACmAAAAAwARAJ+9AAAA4QAAAAQA7QAAnwAAAAAAAAAA/////y0HAAAaAQAANQEAAAMAEQCfTQEAAE8BAAAEAO0CAJ9PAQAAWgEAAAQA7QACnwAAAAAAAAAA/////y0HAAB9AQAAhAEAAAMAEQCfhAEAAIUBAAADABEBnwAAAAAAAAAA/////y0HAAC4AQAAugEAAAQA7QIBn7oBAADAAQAABADtAAGfwAEAAMIBAAAEAO0CAZ/CAQAA0AEAAAQA7QABnwAAAAAAAAAA/////y0HAADoAQAA6gEAAAQA7QIBn+oBAADwAQAABADtAAGf8AEAAPIBAAAEAO0CAZ/yAQAA+AEAAAQA7QABn/gBAAD6AQAABADtAgGf+gEAAEgCAAAEAO0AA58AAAAAAAAAAP////8tBwAAMAIAADECAAAEAO0CAp8AAAAAAAAAAP////8tBwAAbAIAAG4CAAAEAO0CAJ9uAgAArgIAAAQA7QACnwAAAAAAAAAA/////y0HAAB4AgAAhwIAAAMAEQyfhwIAAKcCAAADABEIn6cCAACuAgAAAwARDZ8AAAAAAAAAAP////8tBwAApwIAAK4CAAADABEAnwAAAAAAAAAA/////y0HAAC9AgAAxAIAAAMAEQCfxAIAANACAAADABEBnwAAAAAAAAAA/////y0HAADEAgAA0AIAAAMAEQCfAQMAABMDAAAEAO0AAp8TAwAAFQMAAAMAEQCfFQMAACADAAADABEBn3cDAACAAwAABADtAAOf4wMAAOUDAAAEAO0CAJ/lAwAA5wMAAAQA7QADnwAAAAAAAAAA/////y0HAADuAgAA8AIAAAQA7QICn/ACAAABAwAABADtAAOfAAAAAAAAAAD/////LQcAAHADAACAAwAABADtAAGf3gMAAOcDAAAEAO0AAZ8AAAAAAAAAAP////8tBwAA8AMAAPcDAAADABEAnwAAAAAAAAAA/////y0HAAAGBAAADQQAAAMAEQCfDQQAABQEAAADABEBnwAAAAAAAAAA/////y0HAAA5BAAAOwQAAAQA7QIBnzsEAABdBAAABADtAAKfAAAAAAAAAAD/////LQcAAA0EAAAUBAAAAwARAJ8AAAAAAAAAAP////8tBwAAawQAAG0EAAAEAO0CAJ9tBAAAwwQAAAQA7QACnwAAAAAAAAAA/////y0HAAB3BAAAhgQAAAMAERifhgQAAJkEAAADABEQn5kEAADDBAAAAwARCJ8AAAAAAAAAAP////8tBwAA6wQAAAMFAAADABEAnxoFAAA+BQAABADtAAOfAAAAAAAAAAD/////LQcAAGYFAACBBQAAAwARAJ+ZBQAAmwUAAAQA7QIAn5sFAACmBQAABADtAAKfAAAAAAAAAAD/////LQcAAMkFAADQBQAAAwARAJ/QBQAA0QUAAAMAEQGfAAAAAAAAAAD/////LQcAAOsFAADtBQAABADtAgCf7QUAAC0GAAAEAO0AAp8AAAAAAAAAAP////8tBwAA9wUAAAYGAAADABEMnwYGAAAmBgAAAwARCJ8mBgAALQYAAAMAEQ2fAAAAAAAAAAD/////LQcAACYGAAAtBgAAAwARAJ8AAAAAAAAAAP////8tBwAAPAYAAEMGAAADABEAn0MGAABPBgAAAwARAZ8AAAAAAAAAAP////8tBwAAQwYAAE8GAAADABEAn4AGAACSBgAABADtAAKfkgYAAJQGAAADABEAn5QGAACfBgAAAwARAZ/2BgAA/wYAAAQA7QADn2IHAABkBwAABADtAgCfZAcAAGYHAAAEAO0AA58AAAAAAAAAAP////8tBwAAbQYAAG8GAAAEAO0CAp9vBgAAgAYAAAQA7QADnwAAAAAAAAAA/////y0HAADvBgAA/wYAAAQA7QABn10HAABmBwAABADtAAGfAAAAAAAAAAD/////LQcAAG8HAAB2BwAAAwARAJ8AAAAAAAAAAP////8tBwAAhQcAAIwHAAADABEAn4wHAACTBwAAAwARAZ8AAAAAAAAAAP////8tBwAAtAcAALYHAAAEAO0CAZ+2BwAA3wcAAAQA7QADnwAAAAAAAAAA/////y0HAACMBwAAkwcAAAMAEQCfAAAAAAAAAAD/////LQcAANgHAADfBwAAAwARAJ8AAAAAAAAAAP////8tBwAAIQgAADkIAAADABEAn1AIAAB0CAAABADtAAOfAAAAAAAAAAD/////LQcAAJwIAAC3CAAAAwARAJ/PCAAA0QgAAAQA7QIAn9EIAADcCAAABADtAAKfAAAAAAAAAAD/////4BAAADwAAAD+AAAABADtAASfAAAAAAAAAAD/////4BAAACcAAAApAAAABADtAgCfKQAAAP4AAAAEAO0AA58AAAAAAAAAAP/////gEAAA9AAAAPYAAAAEAO0CAJ/2AAAA/gAAAAQA7QAGnwAAAAAAAAAA/////+AQAAAUAAAASwAAAAMAEQCf3AAAAN4AAAAEAO0AAp/mAAAA5wAAAAQA7QACnwAAAAAAAAAA/////+URAAAwAAAANwAAAAMAEQafNwAAAFkAAAADABEEnwAAAAAAAAAA/////+URAADKAAAA2gAAAAMAEQCf2gAAAOQAAAADABEMn+QAAAD6AAAAAwARCJ8A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BgOkfgguBTUGAyZmBS4GdAU1WAUuWANaPAVABgMpSgYDVzwFKAMpSgNXCMgFNQYDJmYFLgZmA1o8BSgGAylKBgNXrAU1BgMmZgUuBmYDWjwFKAYDKawGA1esBTUGAyZmBS4GZgNaPAUoBgMpWAYDV6wFNQYDJmYFLgZmA1o8BSgGAynIBgNXPAVAAylKA1dmBSgDKUoDVwggBTUGAyZmBS4GZgNaPAUoBgMpSgYDV6wFNQYDJmYFLgZmA1o8BSgGAyl0BQUDuwE8AgcAAQEAtAIEbmFtZQAJCGFwcC53YXNtAfoBEgARX193YXNtX2NhbGxfY3RvcnMBBm1lbXNldAIGbWVtY3B5AxBhbV9hdWN0aW9uX3Jlc2V0BAxhbV9wbGFjZV9iaWQFD2FtX2F1Y3Rpb25fdGljawYIYW1fcHJpY2UHD2FtX3NlY29uZHNfbGVmdAgMYW1fYmlkX2NvdW50CQhhbV9zdGF0ZQoLYW1feW91X2xlYWQLDGFtX25leHRfc3RlcAwNYW1fcmVzdWx0X3B0cg0NYW1fcmVzdWx0X2xlbg4MYW1fc2NyYXRjaF9xDwxhbV9zY3JhdGNoX3QQD2FtX3NlYXJjaF9zY29yZREKYW1fY29udGFjdAcSAQAPX19zdGFja19wb2ludGVyCRECAAcucm9kYXRhAQUuZGF0YQCJAQlwcm9kdWNlcnMCCGxhbmd1YWdlAQNDMTEADHByb2Nlc3NlZC1ieQEFY2xhbmdaMTguMS42IChodHRwczovL2dpdGh1Yi5jb20vemlnbGFuZy96aWctYm9vdHN0cmFwIDk4YmM2YmY0ZmM0MDA5ODg4ZDMzOTQxZGFmNmI2MDBkMjBhNDJhNTYpACwPdGFyZ2V0X2ZlYXR1cmVzAisPbXV0YWJsZS1nbG9iYWxzKwhzaWduLWV4dA==";
+    var C = null, MEM = null;
+    var enc = new TextEncoder(), dec = new TextDecoder();
+    function memWrite(ptr, str) {
+      var b = enc.encode(str);
+      new Uint8Array(MEM.buffer, ptr, b.length).set(b);
+      return b.length;
+    }
+    function memRead(ptr, len) { return dec.decode(new Uint8Array(MEM.buffer, ptr, len)); }
+    function money(cents) {
+      var d = Math.floor(cents / 100), r = cents % 100;
+      return '$' + d + '.' + (r < 10 ? '0' : '') + r;
+    }
+    function clock(s) {
+      var m = Math.floor(s / 60), r = s % 60;
+      return m + ':' + (r < 10 ? '0' : '') + r;
+    }
+
+    var INDEX = [
+      { id: 'live',    label: 'Preview a live show',        hint: 'Live',        text: 'live show preview room bidding fair close auction demonstration lot' },
+      { id: 'explore', label: 'Shop with purpose',          hint: 'Explore',     text: 'shop buy goods sellers kind commerce purpose' },
+      { id: 'explore', label: 'Sell with purpose',          hint: 'Explore',     text: 'sell offer make find market fairness goodwill purpose' },
+      { id: 'giving',  label: 'Give with purpose',          hint: 'Giving',      text: 'give giving proceeds sale plainly stated purpose' },
+      { id: 'how',     label: 'How it works',               hint: 'How it works',text: 'watch bid fair see the giving steps shows work' },
+      { id: 'giving',  label: 'Giving, stated plainly',     hint: 'Giving',      text: 'giving stated plainly policy model proceeds causes' },
+      { id: 'about',   label: 'Why “altruistic”?',          hint: 'About',       text: 'why altruistic meaning latin almus mercatus nourishing market about story' },
+      { id: 'about',   label: 'Contact the mart',           hint: 'About',       text: 'contact email write questions ideas' }
+    ];
+
+    function scoreText(q, text) {
+      if (!C) return (text.toLowerCase().indexOf(q.toLowerCase()) >= 0) ? 1 : 0;
+      var ql = memWrite(C.am_scratch_q(), q);
+      var tl = memWrite(C.am_scratch_t(), text);
+      return C.am_search_score(ql, tl);
+    }
+
+    function renderRoom() {
+      if (!C) return;
+      document.getElementById('lotPrice').textContent = money(C.am_price());
+      document.getElementById('lotBids').textContent = C.am_bid_count();
+      document.getElementById('lotClock').textContent = clock(C.am_seconds_left());
+      var log = memRead(C.am_result_ptr(), C.am_result_len());
+      var el = document.getElementById('lotLog');
+      el.textContent = log.replace(/\n$/, '').split('\n').slice(-9).join('\n');
+      el.scrollTop = el.scrollHeight;
+      var inp = document.getElementById('bidInput');
+      if (document.activeElement !== inp)
+        inp.placeholder = 'Next bid: ' + money(C.am_next_step()) + '+';
+    }
+
+    function startEngine(bytes) {
+      return WebAssembly.instantiate(bytes, {}).then(function (r) {
+        C = r.instance.exports; MEM = C.memory;
+        C.am_auction_reset(100);
+        renderRoom();
+        setInterval(function () { C.am_auction_tick(); renderRoom(); }, 1000);
+        renderContact(memRead(C.am_contact(), 64).split('\0')[0]);
+        document.getElementById('bidBtn').addEventListener('click', function () {
+          var v = parseFloat(document.getElementById('bidInput').value);
+          var fb = document.getElementById('bidFeedback');
+          if (isNaN(v)) { fb.textContent = 'Enter an amount first.'; return; }
+          var res = C.am_place_bid(Math.round(v * 100));
+          fb.textContent = res === 0 ? 'Bid placed — you hold the lot.'
+                        : res === 1 ? 'That is below the next step of ' + money(C.am_next_step()) + '.'
+                        : 'That round has closed. Restart it to bid again.';
+          renderRoom();
+        });
+        document.getElementById('resetBtn').addEventListener('click', function () {
+          C.am_auction_reset(100);
+          document.getElementById('bidFeedback').textContent = 'A fresh round, from $1.00.';
+          renderRoom();
+        });
+        document.querySelectorAll('[data-step]').forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            var inp = document.getElementById('bidInput');
+            inp.value = ((C.am_next_step() + (parseInt(chip.getAttribute('data-step'), 10) - 1) * 100) / 100).toFixed(2);
+            inp.focus();
+          });
+        });
+      });
+    }
+
+    /* Search: the C engine scores every entry; the page just renders. */
+    document.getElementById('searchInput').addEventListener('input', function (e) {
+      var q = e.target.value.trim(), box = document.getElementById('searchResults');
+      box.innerHTML = '';
+      if (!q) return;
+      INDEX.map(function (it) { return { it: it, s: scoreText(q, it.text + ' ' + it.label) }; })
+        .filter(function (r) { return r.s > 0; })
+        .sort(function (a, b) { return b.s - a.s; })
+        .slice(0, 6)
+        .forEach(function (r) {
+          var a = document.createElement('a');
+          a.href = '#' + r.it.id;
+          a.innerHTML = '<small></small>';
+          a.firstChild.textContent = r.it.hint;
+          a.appendChild(document.createTextNode(r.it.label));
+          a.addEventListener('click', closeAll);
+          box.appendChild(a);
+        });
+    });
+    document.getElementById('exploreSearch').addEventListener('input', function (e) {
+      var q = e.target.value.trim();
+      document.querySelectorAll('#tiles .tile').forEach(function (tile) {
+        var s = scoreText(q, tile.getAttribute('data-search') + ' ' + tile.querySelector('h3').textContent);
+        tile.classList.toggle('hide', s <= 0);
+      });
+    });
+    document.getElementById('notifyBtn').addEventListener('click', function () {
+      this.textContent = 'You’re on the list ✓';
+      this.disabled = true;
+    });
+
+    if (WASM_B64.length > 100 && window.WebAssembly) {
+      try {
+        var bin = atob(WASM_B64), bytes = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        startEngine(bytes).catch(function () { fallbackContact(); });
+      } catch (e) { fallbackContact(); }
+    } else { fallbackContact(); }
+  })();
   </script>
 </body>
 </html>
