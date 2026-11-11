@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Almus Mercatus — micro mark (favicon / avatar). Separately redrawn chunky variant of the Bench Branch; do not scale the primary mark down to this size.</title>
+  <circle cx="32" cy="32" r="31.5" fill="#6d1a2d"/>
+  <g fill="none" stroke="#f8f2e1" stroke-linecap="round">
+    <path d="M51.7 47.4 A25 25 0 0 0 47.4 12.3" stroke-width="7.5"/>
+    <path d="M21 49 C17 36 19 24 27 16" stroke-width="6"/>
+  </g>
+  <g fill="#f8f2e1">
+    <path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(19 40) rotate(-52) scale(1.12)"/>
+    <path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(22 28) rotate(38) scale(0.98)"/>
+    <path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(28 17) rotate(-4) scale(0.92)"/>
+  </g>
+</svg>
