@@ -218,9 +218,7 @@ int am_search_score(int qlen, int tlen) {
 const char *am_contact(void) {
     char *w = contact_buf;
     w[0] = 0;
-    s_cat(w, "joshua");
-    s_cat(w, ".");
-    s_cat(w, "foraker");
+    s_cat(w, "contact");
     s_cat(w, "@");
     s_cat(w, "almsmercatus");
     s_cat(w, ".");

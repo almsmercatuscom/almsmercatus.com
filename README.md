@@ -31,5 +31,5 @@ nothing on the page that cannot be said plainly.
 
 - Concrete giving model (e.g. % of proceeds, featured causes, seller pledge)
 - Real call to action / shop link once the first shows are scheduled
-- Newsletter signup (contact email joshua.foraker@almsmercatus.com is live,
+- Newsletter signup (contact email contact@almsmercatus.com is live,
   assembled by the C engine so scrapers cannot lift it from the source)
