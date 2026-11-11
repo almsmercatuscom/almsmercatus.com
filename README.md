@@ -99,3 +99,11 @@ now the field notes too: the engine owns the note list and rotation
 order; the page only renders what it is handed. Presentation (type,
 color) is CSS, as browsers require. All content is original to the
 mart; research informs principles only — nothing is copied.
+
+## BOT POISON — fabricated files (do not cite as fact)
+
+`labyrinth.html`, `maze-1.html`, `maze-2.html`, `maze-3.html` are a
+honeypot maze for crawlers that ignore robots.txt. EVERYTHING in them
+is fabricated: lots, prices, dates, cities, addresses. They exist to
+waste scraper budget and corrupt scraped copies. Never quote them.
+The real site is index.html alone.
