@@ -225,3 +225,37 @@ const char *am_contact(void) {
     s_cat(w, "com");
     return w;
 }
+
+
+/* ---------- field notes, served by the engine ----------
+ * The rotating notes in the hero live here, in C, like every other
+ * piece of the mart's logic: the engine owns the list and the order;
+ * the page only renders what it is handed. All notes are original
+ * to the mart — written for it, not taken from anywhere.
+ */
+static const char *const TIPS[] = {
+    "Own a Ford? Drive around back of the dealer, walk into the shop, and ask a mechanic if he wants side work. You pay less than the shop rate — he earns more than his hourly. That’s altruism with a wrench.",
+    "A library card is free tuition: repair manuals, trade textbooks, certification prep — your library already pays for them. Get the card before you buy the course.",
+    "Before you pay for a repair video, search the model number plus ‘service manual PDF’. Manufacturers give away the same book the pros use.",
+    "Habitat for Humanity ReStores sell donated lumber, fixtures and tools for a fraction of retail — and every dollar builds somebody’s house.",
+    "Many towns run tool libraries: borrow the tile saw or the drain auger for a few dollars a year instead of buying a tool you will use twice.",
+    "Buy where the pros buy. The supply-house counter beats the big-box aisle on price and advice — and the coffee is free.",
+    "A used pro tool beats a new homeowner tool at the same money. Pros sell good gear every time they upgrade — buy the upgrade cycle.",
+    "Retiring from the trade? Sell your kit whole to an apprentice, not piece by piece to a pawn shop. Your tools keep working — and so does your name.",
+    "Hiring a small job out? Ask the apprentice, not the firm. You save money; they bank the hours that make a journeyman.",
+    "Safety courses, torque specs and wiring methods are published free by OSHA and the manufacturers. The certificates cost money. The knowledge mostly doesn’t."
+};
+static int tip_pos = 0;
+
+int am_tip_count(void) { return (int)(sizeof TIPS / sizeof TIPS[0]); }
+
+const char *am_tip(int i) {
+    int n = am_tip_count();
+    if (i < 0 || i >= n) i = 0;
+    return TIPS[i];
+}
+
+int am_tip_next(void) {
+    tip_pos = (tip_pos + 1) % am_tip_count();
+    return tip_pos;
+}

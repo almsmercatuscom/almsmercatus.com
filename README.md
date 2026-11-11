@@ -89,3 +89,13 @@ step numerals moved off the low-contrast soft gold; long prose bumped
 to 18px and capped at ~38rem measure everywhere. Kept, on evidence:
 Palatino/Georgia serif direction, parchment ground, ink and burgundy
 (both AAA), 17px/1.65 base settings, light theme with dark accents.
+
+## All logic in C11 (2026-11-10)
+
+Per the owner's standing rule, every piece of custom behavior on the
+site runs in the C11 engine (src/app.c -> WebAssembly): the auction
+clock and bids, fair close, search scoring, the contact assembly — and
+now the field notes too: the engine owns the note list and rotation
+order; the page only renders what it is handed. Presentation (type,
+color) is CSS, as browsers require. All content is original to the
+mart; research informs principles only — nothing is copied.
