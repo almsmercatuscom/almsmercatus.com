@@ -78,3 +78,14 @@ loop "from sold to settled" (closes only on buyer confirmation); The
 Mart's Word — a house-backed remedy keyed to the recorded bench test;
 the Apprentice Hour (masters teaching live before featured shows);
 a named, accountable human at The Counter.
+
+## Aesthetic evidence pass (2026-11-10)
+
+Applied from aesthetic-research.md (sourced readability/perception
+studies): split the gold token — decorative gold stays #a5813c, but
+small text now uses --gold-ink #7d5f22 (5.3:1 on parchment, AA+);
+--faint darkened #96835f -> #7a6a48 (4.7:1); foil gradient deepened;
+step numerals moved off the low-contrast soft gold; long prose bumped
+to 18px and capped at ~38rem measure everywhere. Kept, on evidence:
+Palatino/Georgia serif direction, parchment ground, ink and burgundy
+(both AAA), 17px/1.65 base settings, light theme with dark accents.
