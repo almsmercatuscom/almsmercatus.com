@@ -33,3 +33,22 @@ nothing on the page that cannot be said plainly.
 - Real call to action / shop link once the first shows are scheduled
 - Newsletter signup (contact email contact@almsmercatus.com is live,
   assembled by the C engine so scrapers cannot lift it from the source)
+
+## Trades edition (2026-11-10)
+
+The platform is tailored to the skilled trades — the research behind it is in
+the goal workspace (trades-research.md). On the page:
+
+- **The Trades Rail** (Explore): power tools (from $40), hand tools ($10),
+  test & measurement ($35), welding ($60), surplus material ($15), and whole
+  kits & buyouts (appraisal free). Every lot is Tested Live, serials shown.
+- **Services**: Tested Live certification $15/lot; serial-check included;
+  kit appraisal free; apprentice starter kits from $199; crew outfitting per
+  lot; calibration dates stated on test gear.
+- **Field notes**: altruistic tips and free-education pointers woven through
+  the site (a rotating note in the hero plus cards between sections) — help
+  given away free, on the house.
+- **Payments**: purchases and donations will run through Stripe (card,
+  Apple Pay, bank); the Support section is live and the payment links are
+  wired as soon as the owner's Stripe account is connected. The mart never
+  sees or stores card numbers.

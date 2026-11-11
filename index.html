@@ -283,6 +283,14 @@
       .stage{min-height:16rem}
       .eyebrow::before,.eyebrow::after{width:1.6rem}
     }
+
+    /* -- Trades edition: field notes, tips, price lines -- */
+    .fieldnote{margin:2.8rem auto 0;max-width:34rem;font-style:italic;color:var(--muted);font-size:.99rem}
+    .fieldnote .fn{display:block;font-style:normal;font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+    .tipcard{max-width:45rem;margin:3.4rem auto 0;background:linear-gradient(180deg,#fffef8,var(--card));border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:14px;padding:1.6rem 1.9rem;box-shadow:0 10px 28px rgba(101,78,32,.07);text-align:left}
+    .tipcard .fn{font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.55rem}
+    .tipcard p{margin:0;font-style:italic;color:var(--muted);font-size:1rem}
+    .price-line{display:block;margin-top:1.1rem;font-family:var(--sans);font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy)}
 </style>
 </head>
 <body>
@@ -295,6 +303,7 @@
       <div class="links">
         <a href="#live">Live</a>
         <a href="#explore">Explore</a>
+        <a href="#services">Services</a>
         <a href="#how">How it works</a>
         <a href="#giving">Giving</a>
         <a href="#about">About</a>
@@ -330,6 +339,7 @@
       <nav>
         <a href="#live" data-close>Live</a>
         <a href="#explore" data-close>Explore</a>
+        <a href="#services" data-close>Services</a>
         <a href="#how" data-close>How it works</a>
         <a href="#giving" data-close>Giving</a>
         <a href="#about" data-close>About</a>
@@ -342,12 +352,13 @@
       <div class="narrow">
         <p class="eyebrow">Almus Mercatus · The Altruistic Mart</p>
         <h1>A market that<br><em class="gold-text">gives back.</em></h1>
-        <p class="sub">Live shows. Honest selling. Giving stated plainly. A marketplace built on a simple idea — every exchange should leave someone better off.</p>
+        <p class="sub">Built for the trades. Pro tools shown working on camera, prices stated up front, giving on every lot — because your time is worth money, and this market treats it that way.</p>
         <div class="cta-row">
           <a class="btn" href="#live">Preview a live show</a>
           <a class="more" href="#how">How it works</a>
         </div>
         <p class="seneca">“Wherever there is a human being, there is an opportunity for a kindness.”<span>Seneca</span></p>
+        <p class="fieldnote"><span class="fn">On the house · A field note</span><span id="tipText">Own a Ford? Drive around back of the dealer, walk into the shop, and ask a mechanic if he wants side work. You pay less than the shop rate — he earns more than his hourly. That’s altruism with a wrench.</span></p>
       </div>
     </section>
 
@@ -355,18 +366,18 @@
       <div class="wrap">
         <p class="eyebrow" style="text-align:center">Live</p>
         <h2>Live, <em>without the games.</em></h2>
-        <p class="lede">No sniping — a bid near the close extends the round. No fine print — the giving is stated before the first bid. Try the room; it runs exactly as a real show will.</p>
+        <p class="lede">No sniping, no filler, no wasted evenings. Short rounds, honest lots, the giving stated before the first bid — try the room; it runs exactly as a real show will.</p>
 
         <div class="room">
           <div class="stage">
             <span class="badge">Preview room</span>
             <svg width="64" height="64" viewBox="0 0 80 80" aria-hidden="true"><g stroke="#a5813c" stroke-width="1.6" stroke-linecap="round"><path d="M40 2v6M40 72v6M2 40h6M72 40h6M13.2 13.2l4.2 4.2M62.6 62.6l4.2 4.2M66.8 13.2l-4.2 4.2M17.4 62.6l-4.2 4.2"/></g><circle cx="40" cy="40" r="29" fill="#6d1a2d" stroke="#a5813c" stroke-width="1.6"/><circle cx="40" cy="40" r="24.5" fill="none" stroke="#c9ab63" stroke-width=".8"/><g fill="#eedaa6"><path d="M40 58c0-10 0-20 1-30" stroke="#eedaa6" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M40.4 50c-5.5-.4-9.4-3.2-11.4-8 5.5.4 9.4 3.2 11.4 8z"/><path d="M40.6 50c5.5-.4 9.4-3.2 11.4-8-5.5.4-9.4 3.2-11.4 8z"/><path d="M40.7 41c-5-.4-8.6-2.9-10.4-7.3 5 .4 8.6 2.9 10.4 7.3z"/><path d="M40.9 41c5-.4 8.6-2.9 10.4-7.3-5 .4-8.6 2.9-10.4 7.3z"/><path d="M41 33c-4.2-.3-7.2-2.4-8.7-6.1 4.2.3 7.2 2.4 8.7 6.1z"/><path d="M41.2 33c4.2-.3 7.2-2.4 8.7-6.1-4.2.3-7.2 2.4-8.7 6.1z"/><circle cx="41.2" cy="24.6" r="2.1"/></g></svg>
             <div class="clock"><span id="lotClock">2:00</span><small>left in the round</small></div>
-            <p>This is a working preview. When the first seller goes live, their show opens here — the bidding below already runs by the real rules.</p>
+            <p>When the first seller goes live, their show opens here. Until then, the room below runs by the real rules — give it a minute of your time, not an evening.</p>
           </div>
           <div class="lotbox">
-            <h3>The opening lot</h3>
-            <p class="note">A demonstration lot, so you can feel a round before the first real one. Nothing here is for sale — yet.</p>
+            <h3>The opening lot — a pro cordless kit</h3>
+            <p class="note">A demonstration lot, so you can feel a round before the first real one. Every real lot is run under load on camera before it sells — a tool that won’t perform doesn’t list here. Nothing here is for sale — yet.</p>
             <div class="pricerow">
               <div><div class="k">Current bid</div><div class="v" id="lotPrice">$1.00</div></div>
               <div><div class="k">Bids</div><div class="v" id="lotBids">0</div></div>
@@ -394,34 +405,103 @@
 
     <section id="explore">
       <div class="wrap">
-        <p class="eyebrow" style="text-align:center">Explore</p>
-        <h2>Three ways in. <em>One standard.</em></h2>
-        <p class="lede">Everything at the mart is held to the same measure: would this leave someone better off?</p>
-        <div class="rail-search"><input id="exploreSearch" type="search" placeholder="Filter — try “give” or “sell”" autocomplete="off"></div>
+        <p class="eyebrow" style="text-align:center">Explore · The Trades Rail</p>
+        <h2>Gear that earns. <em>Priced honestly.</em></h2>
+        <p class="lede">Six rails, one standard: tested live, serial numbers shown, prices up front. Filter the rail — the engine scores every word.</p>
+        <div class="rail-search"><input id="exploreSearch" type="search" placeholder="Filter the rail — try “welding” or “apprentice”" autocomplete="off"></div>
         <div class="tiles" id="tiles">
-          <article class="tile" data-search="shop buy goods sellers kind commerce shop with purpose">
+          <article class="tile" data-search="power tools cordless kits saws grinders impacts drills milwaukee dewalt makita tested live load">
             <span class="rn">I</span>
-            <h3>Shop with purpose</h3>
-            <p>Find goods from sellers who share the idea that commerce can be kind.</p>
-            <a class="more" href="#live">See how shows work</a>
+            <h3>Power tools</h3>
+            <p>Cordless kits, saws, grinders and impacts — each one run under load on camera before it can sell.</p>
+            <span class="price-line">Lots from $40</span>
+            <a class="more" href="#live">See it tested live</a>
           </article>
-          <article class="tile" data-search="sell offer make find market fairness goodwill sell with purpose">
+          <article class="tile" data-search="hand tools wrenches sockets snips squares ratchets steel craftsman snap-on">
             <span class="rn">II</span>
-            <h3>Sell with purpose</h3>
-            <p>Offer what you make or find, and be part of a market built on fairness and goodwill.</p>
-            <a class="more" href="#how">How selling will work</a>
+            <h3>Hand tools</h3>
+            <p>Wrenches, sockets, snips and squares — the steel that outlives its first owner, priced for its second.</p>
+            <span class="price-line">Lots from $10</span>
+            <a class="more" href="#live">See the rail live</a>
           </article>
-          <article class="tile" data-search="give giving proceeds sale plainly stated give with purpose">
+          <article class="tile" data-search="test measurement multimeters clamp meters thermal cameras fluke calibration accuracy reference">
             <span class="rn">III</span>
-            <h3>Give with purpose</h3>
-            <p>The giving built into each sale will be stated plainly, so you know where it goes.</p>
-            <a class="more" href="#giving">The giving standard</a>
+            <h3>Test &amp; measurement</h3>
+            <p>Multimeters, clamp meters and thermal cameras — shown against a reference on camera, calibration date stated on the lot.</p>
+            <span class="price-line">Lots from $35</span>
+            <a class="more" href="#services">How calibration works</a>
           </article>
-          <article class="tile" data-search="why altruistic meaning latin almus mercatus nourishing market about">
+          <article class="tile" data-search="welding mig tig plasma cutters helmets consumables lincoln miller bead">
             <span class="rn">IV</span>
-            <h3>Why “altruistic”?</h3>
-            <p>Almus — kind, nourishing, benevolent. Mercatus — a market, a mart. The name is the mission.</p>
-            <a class="more" href="#about">The story</a>
+            <h3>Welding</h3>
+            <p>MIG, TIG and plasma cutters, helmets and consumables — demonstrated with a bead before the bidding opens.</p>
+            <span class="price-line">Lots from $60</span>
+            <a class="more" href="#live">Watch a demo lot</a>
+          </article>
+          <article class="tile" data-search="surplus material job leftovers conduit wire fittings fasteners lots contractors">
+            <span class="rn">V</span>
+            <h3>Surplus material</h3>
+            <p>Job leftovers — conduit, wire, fittings, fasteners — sold by the lot to the crews who will use them, not to the landfill.</p>
+            <span class="price-line">Lots from $15</span>
+            <a class="more" href="#how">How lots work</a>
+          </article>
+          <article class="tile" data-search="whole kits buyouts retiring van loads apprentice starter kits career appraisal">
+            <span class="rn">VI</span>
+            <h3>Whole kits &amp; buyouts</h3>
+            <p>Retiring or upgrading? Entire kits and van-loads, appraised fairly and sold as one lot — to people who will work them.</p>
+            <span class="price-line">Appraisal always free</span>
+            <a class="more" href="#services">Get an appraisal</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+    <div class="wrap">
+      <aside class="tipcard"><span class="fn">Field note · On the house</span><p>Own a Ford? Skip the service lane. Drive around back to the shop door and ask a mechanic if he takes side work. You pay less than the shop rate, he earns more than his hourly — and the money goes to a working man, not a service department. That’s altruism with a wrench.</p></aside>
+    </div>
+
+    <section class="alt" id="services">
+      <div class="wrap">
+        <p class="eyebrow" style="text-align:center">Services</p>
+        <h2>Handled like <em>you matter.</em></h2>
+        <p class="lede">The mart’s own services — priced in the open, done on camera, and finished when we say they will be.</p>
+        <div class="tiles">
+          <article class="tile">
+            <span class="rn">I</span>
+            <h3>Tested Live certification</h3>
+            <p>We run the lot under load, cycle its batteries, and show the result before it lists. A tool that won’t perform doesn’t sell here.</p>
+            <span class="price-line">$15 per lot</span>
+          </article>
+          <article class="tile">
+            <span class="rn">II</span>
+            <h3>Serial-checked, always</h3>
+            <p>Every serialized tool is checked against theft records before it can list, and its number is shown on camera. Stolen gear has no market here.</p>
+            <span class="price-line">Included with every lot</span>
+          </article>
+          <article class="tile">
+            <span class="rn">III</span>
+            <h3>Kit appraisal &amp; buyout</h3>
+            <p>Whole kits and van-loads appraised within two working days. A fair cash offer — or we sell it as one lot to people who will work it.</p>
+            <span class="price-line">Free</span>
+          </article>
+          <article class="tile">
+            <span class="rn">IV</span>
+            <h3>Apprentice starter kits</h3>
+            <p>Complete, tested, working starter kits assembled from good used gear — the bag a first-year actually needs, without the tool-truck debt.</p>
+            <span class="price-line">From $199</span>
+          </article>
+          <article class="tile">
+            <span class="rn">V</span>
+            <h3>Crew outfitting</h3>
+            <p>Bulk lots for companies, serials recorded for every tool, and one clean invoice for the office at the end.</p>
+            <span class="price-line">Priced per lot</span>
+          </article>
+          <article class="tile">
+            <span class="rn">VI</span>
+            <h3>The calibration rail</h3>
+            <p>Test gear listed with its calibration date, due date and certificate — so a meter’s word is worth what you pay for it.</p>
+            <span class="price-line">Included on test-gear lots</span>
           </article>
         </div>
       </div>
@@ -432,19 +512,35 @@
         <p class="eyebrow" style="text-align:center">How it works</p>
         <h2>Simple, <em>on purpose.</em></h2>
         <div class="steps">
-          <div class="step"><div class="n">1</div><h3>Watch</h3><p>Sellers host their shows live. You see the goods, the seller, and the giving — all before the first bid.</p></div>
+          <div class="step"><div class="n">1</div><h3>Watch</h3><p>Sellers host their shows live. You see the tool run, its serial number, and the giving — all before the first bid. Two minutes tells you what a listing page never can.</p></div>
           <div class="step"><div class="n">2</div><h3>Bid fair</h3><p>Rounds run on a fair-close clock. Late bids extend the round, so lots are won by wanting them, not by gaming the last second.</p></div>
           <div class="step"><div class="n">3</div><h3>See the giving</h3><p>Every lot states its giving up front, in plain words. When a sale closes, you know exactly what it did.</p></div>
         </div>
       </div>
     </section>
 
+    <div class="wrap">
+      <aside class="tipcard"><span class="fn">Field note · Free education</span><p>A library card is free tuition. Repair manuals, trade textbooks, certification prep, even the pricey online courses — your public library already pays for them. Get the card before you buy the course.</p></aside>
+    </div>
+
     <section class="dark" id="giving">
       <div class="wrap">
         <p class="eyebrow" style="text-align:center">Giving</p>
         <p class="statement">“The giving built into each sale will be stated plainly, <em>so you know where it goes.</em>”</p>
-        <p class="fineprint">That is the whole policy, and it will not grow fine print. The precise model is being set now — and when it is chosen, it will be printed here in one sentence.</p>
+        <p class="fineprint">That is the whole policy, and it will not grow fine print. The precise model is being set now — and when it is chosen, it will be printed here in one sentence. When the giving begins, it begins with the trades: tools in apprentices’ hands, through the programs that already do that work well.</p>
         <!-- TODO(Joshua): add your concrete model here — e.g. % of proceeds, featured causes, seller pledge. Do not publish a % until you decide it. -->
+      </div>
+    </section>
+
+        <section id="support">
+      <div class="narrow" style="text-align:center">
+        <p class="eyebrow">Support the mart</p>
+        <h2>Fuel for <em>the mission.</em></h2>
+        <p style="color:var(--muted);font-size:1.1rem;line-height:1.65">The mart runs on its sales — but gifts move it faster, and every gift is thanked by name, or kept anonymous if you would rather. Purchases and donations will be handled by Stripe: card, Apple Pay, or bank. The mart never sees your card number, and neither do we store it.</p>
+        <p style="color:var(--muted);font-size:1.1rem;line-height:1.65">The payment switch is being wired now and opens with the first shows. Until then, the surest way to move this forward is a note — we answer every one.</p>
+      </div>
+      <div class="wrap">
+        <aside class="tipcard"><span class="fn">Field note · Pass it on</span><p>Building something? Habitat for Humanity ReStores sell donated lumber, fixtures and tools for a fraction of retail — and every dollar builds somebody’s house.</p></aside>
       </div>
     </section>
 
@@ -454,6 +550,7 @@
         <h2>Why <em>“altruistic”?</em></h2>
         <p class="dropcap" style="margin-top:2.2rem">Most markets ask only, “what’s it worth?” We also ask, “who does it help?” Almus Mercatus is being built around generosity as a feature, not an afterthought.</p>
         <p>We’re just getting started. The first shows, sellers, and listings are being prepared now — and the door opens when they’re ready to be proud of.</p>
+        <p>The mart is being built for the trades first — electricians, plumbers, welders, mechanics, and the apprentices coming up behind them — because nobody else is building for them at all. No platform tests a used tool live, checks its serial before it sells, or honors a forty-year kit the way it deserves. That is the gap. That is the market.</p>
         <p>Questions or ideas in the meantime? Write to <span id="contact-email"><noscript>contact [at] almsmercatus [dot] com</noscript></span>.</p>
         <!-- TODO(Joshua): replace the hero call to action with your real shop link when the first shows are scheduled -->
         <!-- TODO(Joshua): add newsletter signup -->
@@ -469,7 +566,7 @@
           <div style="margin-top:.5rem">© <span id="y"></span> Almus Mercatus · almsmercatus.com <a class="hp" href="/labyrinth.html" aria-hidden="true" tabindex="-1">archive</a></div>
         </div>
         <div style="display:flex;gap:1.6rem;font-family:var(--sans);font-size:.82rem">
-          <a href="#live">Live</a><a href="#explore">Explore</a><a href="#giving">Giving</a><a href="#about">About</a>
+          <a href="#live">Live</a><a href="#explore">Explore</a><a href="#services">Services</a><a href="#giving">Giving</a><a href="#about">About</a>
         </div>
       </div>
     </div>
@@ -545,7 +642,10 @@
       { id: 'how',     label: 'How it works',               hint: 'How it works',text: 'watch bid fair see the giving steps shows work' },
       { id: 'giving',  label: 'Giving, stated plainly',     hint: 'Giving',      text: 'giving stated plainly policy model proceeds causes' },
       { id: 'about',   label: 'Why “altruistic”?',          hint: 'About',       text: 'why altruistic meaning latin almus mercatus nourishing market about story' },
-      { id: 'about',   label: 'Contact the mart',           hint: 'About',       text: 'contact email write questions ideas' }
+      { id: 'about',   label: 'Contact the mart',           hint: 'About',       text: 'contact email write questions ideas' },
+      { id: 'explore', label: 'The trades rail',            hint: 'Explore',     text: 'power tools hand tools welding test measurement surplus kits trades gear prices' },
+      { id: 'services', label: 'Services — tested, appraised, outfitted', hint: 'Services', text: 'services tested live certification serial checked appraisal buyout apprentice starter kits crew outfitting calibration prices' },
+      { id: 'support', label: 'Support the mart',           hint: 'Support',     text: 'support donate donation gift stripe payments contribute mission' }
     ];
 
     function scoreText(q, text) {
@@ -639,6 +739,28 @@
         startEngine(bytes).catch(function () { fallbackContact(); });
       } catch (e) { fallbackContact(); }
     } else { fallbackContact(); }
+  })();
+  </script>
+
+  <script>
+  (function () {
+    var el = document.getElementById('tipText');
+    if (!el) return;
+    var tips = [
+      "Own a Ford? Drive around back of the dealer, walk into the shop, and ask a mechanic if he wants side work. You pay less than the shop rate — he earns more than his hourly. That’s altruism with a wrench.",
+      "A library card is free tuition: repair manuals, trade textbooks, certification prep — your library already pays for them. Get the card before you buy the course.",
+      "Before you pay for a repair video, search the model number plus ‘service manual PDF’. Manufacturers give away the same book the pros use.",
+      "Habitat for Humanity ReStores sell donated lumber, fixtures and tools for a fraction of retail — and every dollar builds somebody’s house.",
+      "Many towns run tool libraries: borrow the tile saw or the drain auger for a few dollars a year instead of buying a tool you will use twice.",
+      "Buy where the pros buy. The supply-house counter beats the big-box aisle on price and advice — and the coffee is free.",
+      "A used pro tool beats a new homeowner tool at the same money. Pros sell good gear every time they upgrade — buy the upgrade cycle.",
+      "Retiring from the trade? Sell your kit whole to an apprentice, not piece by piece to a pawn shop. Your tools keep working — and so does your name.",
+      "Hiring a small job out? Ask the apprentice, not the firm. You save money; they bank the hours that make a journeyman.",
+      "Safety courses, torque specs and wiring methods are published free by OSHA and the manufacturers. The certificates cost money. The knowledge mostly doesn’t."
+    ];
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i = 0;
+    setInterval(function () { i = (i + 1) % tips.length; el.textContent = tips[i]; }, 9000);
   })();
   </script>
 </body>
