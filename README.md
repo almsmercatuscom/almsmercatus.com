@@ -52,3 +52,19 @@ the goal workspace (trades-research.md). On the page:
   Apple Pay, bank); the Support section is live and the payment links are
   wired as soon as the owner's Stripe account is connected. The mart never
   sees or stores card numbers.
+
+## Original mechanisms (written from scratch, 2026-11-10)
+
+Studied the platforms tradespeople frequent; borrowed none of their
+features. Built our own, modeled on the physical supply house:
+
+- **The Rail** — the live room. **The Bench** — where lots are tested and
+  graded. **The Counter** — free straight answers. **The Yard** — surplus.
+- **The Two-Minute Truth** — every lot: run under load, serial shown,
+  flaws named, before the first bid.
+- **The condition rubric** — Work-Ready / Bench-Worn / Project, plus the
+  rule: no grade without the bench.
+- **Chain of Hands** — a provenance card (origin, hands, work) plus a
+  bill of sale with the serial, traveling with every serialized tool.
+- **The handover** — a retiring seller's two-minute live handover is
+  recorded and travels with a whole kit to its next owner.
