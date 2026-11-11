@@ -306,6 +306,14 @@
 
     /* -- Evidence pass (aesthetic research): prose measure guard -- */
     #support p{max-width:38rem;margin-left:auto;margin-right:auto}
+
+    /* -- Plates & tile icons (luxury pass 2: the picture pass) -- */
+    .plate{margin:3.6rem auto 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:2rem .5rem 1.6rem}
+    .plate svg{width:100%;height:auto;display:block}
+    .plate .cap{display:block;text-align:center;font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);margin-top:1.1rem}
+    .tile .ic{display:block;width:32px;height:32px;color:var(--gold-ink);margin-bottom:1.05rem}
+    .tile .ic svg{width:100%;height:100%}
+    .gmark{display:flex;justify-content:center;margin:0 auto 2.4rem}
 </style>
 </head>
 <body>
@@ -374,6 +382,36 @@
           <a class="btn" href="#live">Preview a live show</a>
           <a class="more" href="#how">How it works</a>
         </div>
+        <div class="plate" aria-hidden="true">
+          <svg viewBox="0 0 640 210" fill="none" stroke="#4a3a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M84 178 C80 132 92 92 120 56" stroke="#7d5f22"/>
+            <g fill="#c9ab63" fill-opacity=".45" stroke="#7d5f22" stroke-width="1">
+              <path d="M0 0 C-6 -5 -7 -14 0 -21 C7 -14 6 -5 0 0Z" transform="translate(83 148) rotate(-52) scale(1.05)"/>
+              <path d="M0 0 C-6 -5 -7 -14 0 -21 C7 -14 6 -5 0 0Z" transform="translate(86 122) rotate(38) scale(.95)"/>
+              <path d="M0 0 C-6 -5 -7 -14 0 -21 C7 -14 6 -5 0 0Z" transform="translate(94 98) rotate(-44) scale(.9)"/>
+              <path d="M0 0 C-6 -5 -7 -14 0 -21 C7 -14 6 -5 0 0Z" transform="translate(106 76) rotate(26) scale(.8)"/>
+              <path d="M0 0 C-6 -5 -7 -14 0 -21 C7 -14 6 -5 0 0Z" transform="translate(120 57) rotate(-4) scale(.85)"/>
+            </g>
+            <rect x="272" y="82" width="88" height="102" rx="11"/>
+            <rect x="288" y="96" width="56" height="24" rx="3"/>
+            <path d="M296 108 h10 l4 -5 6 10 4 -5 h16" stroke="#6d1a2d" stroke-width="1.4"/>
+            <circle cx="316" cy="150" r="17"/>
+            <path d="M316 150 l9 -8" stroke="#6d1a2d"/>
+            <circle cx="316" cy="150" r="2.4" fill="#6d1a2d" stroke="none"/>
+            <path d="M292 184 C270 196 236 196 214 182" stroke="#6d1a2d" stroke-width="1.4"/>
+            <path d="M340 184 C366 198 402 196 428 180" stroke-width="1.4"/>
+            <path d="M214 182 l-4 10 M210 182 l3 10" stroke="#6d1a2d" stroke-width="1.4"/>
+            <path d="M428 180 l-3 11 M428 180 l5 10" stroke-width="1.4"/>
+            <path d="M452 62 v122 M452 62 h44 M496 62 v14" />
+            <path d="M466 84 h30 v34 h-30 z M466 101 h30" />
+            <circle cx="481" cy="140" r="7"/>
+            <path d="M452 150 h18 M452 166 h12" stroke-width="1.3"/>
+            <path d="M540 178 v-58 M532 120 h16 M536 132 h8" stroke-width="1.3"/>
+            <path d="M24 184 H616" stroke-width="1.4"/>
+            <path d="M150 178 v6 M250 178 v6 M390 178 v6 M520 178 v6 M580 178 v6" stroke-width="1.1"/>
+          </svg>
+          <span class="cap">The bench, before the bidding</span>
+        </div>
         <p class="seneca">“Wherever there is a human being, there is an opportunity for a kindness.”<span>Seneca</span></p>
         <p class="fieldnote"><span class="fn">On the house · A field note</span><span id="tipText">Own a Ford? Drive around back of the dealer, walk into the shop, and ask a mechanic if he wants side work. You pay less than the shop rate — he earns more than his hourly. That’s altruism with a wrench.</span></p>
       </div>
@@ -390,11 +428,11 @@
             <span class="badge">Preview room</span>
             <svg width="64" height="64" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="30" fill="#6d1a2d" stroke="#a5813c" stroke-width="2"/><g transform="translate(40 40) scale(0.55) translate(-50 -50)"><g fill="none" stroke="#eedaa6" stroke-linecap="round"><path d="M82.8 72.9 A40 40 0 0 0 72.9 17.2" stroke-width="7"/><path d="M30 78 C24 58 26 38 40 24" stroke-width="5"/></g><g fill="#eedaa6"><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(27 64) rotate(-55) scale(1.05)"/><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(28 52) rotate(42) scale(0.95)"/><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(30 42) rotate(-48) scale(0.9)"/><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(34 32) rotate(28) scale(0.8)"/><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(40 24) rotate(-4) scale(0.88)"/></g></g></svg>
             <div class="clock"><span id="lotClock">2:00</span><small>left in the round</small></div>
-            <p>When the first seller goes live, their show opens here. Until then, the room below runs by the real rules — give it a minute of your time, not an evening.</p>
+            <p>The room below runs by the real rules — give it a minute of your time, not an evening.</p>
           </div>
           <div class="lotbox">
             <h3>The opening lot — a pro cordless kit</h3>
-            <p class="note">A demonstration lot, so you can feel a round before the first real one. Every real lot is run under load on camera before it sells — a tool that won’t perform doesn’t list here. Nothing here is for sale — yet.</p>
+            <p class="note">A demonstration lot — feel a round before the first real one. Nothing here is for sale — yet.</p>
             <div class="pricerow">
               <div><div class="k">Current bid</div><div class="v" id="lotPrice">$1.00</div></div>
               <div><div class="k">Bids</div><div class="v" id="lotBids">0</div></div>
@@ -425,48 +463,48 @@
       <div class="wrap">
         <p class="eyebrow" style="text-align:center">Explore · The Trades Rail</p>
         <h2>Gear that earns. <em>Priced honestly.</em></h2>
-        <p class="lede">Six rails, one standard: tested live, serial numbers shown, prices up front. Filter the rail — the engine scores every word.</p>
+        <p class="lede">Six rails, one standard: tested live, serials shown, prices up front.</p>
         <div class="rail-search"><input id="exploreSearch" type="search" placeholder="Filter the rail — try “welding” or “apprentice”" autocomplete="off"></div>
         <div class="tiles" id="tiles">
           <article class="tile" data-search="power tools cordless kits saws grinders impacts drills milwaukee dewalt makita tested live load">
-            <span class="rn">I</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5h11V13H3z"/><path d="M14 9l4.5 1.8L14 12.5M18.5 10.8H21M7.5 13v4.5M5 21h6v-3.5H5z"/></svg></span>
             <h3>Power tools</h3>
-            <p>Cordless kits, saws, grinders and impacts — each one run under load on camera before it can sell.</p>
+            <p>Run under load on camera before it can sell.</p>
             <span class="price-line">Lots from $40</span>
             <a class="more" href="#live">See it tested live</a>
           </article>
           <article class="tile" data-search="hand tools wrenches sockets snips squares ratchets steel craftsman snap-on">
-            <span class="rn">II</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
             <h3>Hand tools</h3>
-            <p>Wrenches, sockets, snips and squares — the steel that outlives its first owner, priced for its second.</p>
+            <p>The steel that outlives its first owner.</p>
             <span class="price-line">Lots from $10</span>
             <a class="more" href="#live">See the rail live</a>
           </article>
           <article class="tile" data-search="test measurement multimeters clamp meters thermal cameras fluke calibration accuracy reference">
-            <span class="rn">III</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="2.5" width="13" height="19" rx="2"/><path d="M8.5 7h7"/><circle cx="12" cy="14.5" r="3"/><path d="M12 14.5l2-2"/></svg></span>
             <h3>Test &amp; measurement</h3>
-            <p>Multimeters, clamp meters and thermal cameras — shown against a reference on camera, calibration date stated on the lot.</p>
+            <p>Read against a reference, on camera.</p>
             <span class="price-line">Lots from $35</span>
             <a class="more" href="#services">How calibration works</a>
           </article>
           <article class="tile" data-search="welding mig tig plasma cutters helmets consumables lincoln miller bead">
-            <span class="rn">IV</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21L13.5 10.5M13.5 10.5L16 8M17.5 3.5l.9 2.4M20.8 5.2l-2.2 1.3M21 9.5l-2.6-.4M15.8 5.2L17 7.4"/></svg></span>
             <h3>Welding</h3>
-            <p>MIG, TIG and plasma cutters, helmets and consumables — demonstrated with a bead before the bidding opens.</p>
+            <p>Demonstrated with a bead before bidding opens.</p>
             <span class="price-line">Lots from $60</span>
             <a class="more" href="#live">Watch a demo lot</a>
           </article>
           <article class="tile" data-search="surplus material job leftovers conduit wire fittings fasteners lots contractors">
-            <span class="rn">V</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h13v-4.5H4zM7 15.5h13V11H7zM10 11h9V6.5h-9z"/></svg></span>
             <h3>The Yard · Surplus material</h3>
-            <p>Job leftovers — conduit, wire, fittings, fasteners — sold by the lot to the crews who will use them, not to the landfill.</p>
+            <p>Job leftovers, sold by the lot to crews who’ll use them.</p>
             <span class="price-line">Lots from $15</span>
             <a class="more" href="#how">How lots work</a>
           </article>
           <article class="tile" data-search="whole kits buyouts retiring van loads apprentice starter kits career appraisal">
-            <span class="rn">VI</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="11.5" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13.5h18"/></svg></span>
             <h3>Whole kits &amp; buyouts</h3>
-            <p>Retiring or upgrading? Entire kits and van-loads, appraised fairly and sold as one lot — to people who will work them. The seller’s two-minute handover is recorded live and travels with the kit.</p>
+            <p>A whole career, sold as one lot — handover recorded.</p>
             <span class="price-line">Appraisal always free</span>
             <a class="more" href="#services">Get an appraisal</a>
           </article>
@@ -475,63 +513,59 @@
     </section>
 
     
-    <div class="wrap">
-      <aside class="tipcard"><span class="fn">Field note · On the house</span><p>Own a Ford? Skip the service lane. Drive around back to the shop door and ask a mechanic if he takes side work. You pay less than the shop rate, he earns more than his hourly — and the money goes to a working man, not a service department. That’s altruism with a wrench.</p></aside>
-    </div>
-
     <section class="alt" id="services">
       <div class="wrap">
         <p class="eyebrow" style="text-align:center">Services</p>
         <h2>Handled like <em>you matter.</em></h2>
-        <p class="lede">The mart’s own services — priced in the open, done on camera, and finished when we say they will be. Every price on this page is the whole price: no account to open, no quote wall, no surprise at the till.</p>
+        <p class="lede">Priced in the open, done on camera. Every price here is the whole price.</p>
         <div class="tiles">
           <article class="tile">
             <span class="rn">I</span>
             <h3>Tested Live certification</h3>
-            <p>We run the lot under load, cycle its batteries, and show the result before it lists. A tool that won’t perform doesn’t sell here.</p>
+            <p>Run under load, batteries cycled, result shown — before it lists.</p>
             <span class="price-line">$15 per lot</span>
           </article>
           <article class="tile">
             <span class="rn">II</span>
             <h3>Serial-checked · Chain of Hands</h3>
-            <p>Every serialized tool is checked against theft records before it can list, and its number is shown on camera. Its story — where it came from, whose hands, what work it did — is recorded on a Chain of Hands card that travels with the tool. Stolen gear has no market here.</p>
+            <p>Serial checked and shown on camera; its story travels with the tool.</p>
             <span class="price-line">Included with every lot</span>
           </article>
           <article class="tile">
             <span class="rn">III</span>
             <h3>Kit appraisal &amp; buyout</h3>
-            <p>Whole kits and van-loads appraised within two working days. A fair cash offer — or we sell it as one lot to people who will work it.</p>
+            <p>Whole kits appraised within two working days — a fair offer, or sold as one lot.</p>
             <span class="price-line">Free</span>
           </article>
           <article class="tile">
             <span class="rn">IV</span>
             <h3>Apprentice starter kits</h3>
-            <p>Complete, tested, working starter kits assembled from good used gear — the bag a first-year actually needs, without the tool-truck debt.</p>
+            <p>The bag a first-year actually needs — without the tool-truck debt.</p>
             <span class="price-line">From $199</span>
           </article>
           <article class="tile">
             <span class="rn">V</span>
             <h3>Crew outfitting</h3>
-            <p>Bulk lots for companies, serials recorded for every tool, and one clean invoice for the office at the end.</p>
+            <p>Bulk lots, serials recorded, one clean invoice.</p>
             <span class="price-line">Priced per lot</span>
+          </article>
+          <article class="tile">
+            <span class="rn">VI</span>
+            <h3>The calibration rail</h3>
+            <p>Calibration date, due date and certificate — stated on the lot.</p>
+            <span class="price-line">Included on test-gear lots</span>
           </article>
           <article class="tile">
             <span class="rn">VII</span>
             <h3>From sold to settled</h3>
-            <p>A purchase here is a job, not an event. Every order moves in the open — paid, packed with a photo from the bench, shipped, delivered — and it closes only when you confirm it. No silence at any handoff.</p>
+            <p>Every order moves in the open — and closes only when you confirm it.</p>
             <span class="price-line">Included with every order</span>
           </article>
           <article class="tile">
             <span class="rn">VIII</span>
             <h3>The Mart’s Word</h3>
-            <p>If a tool arrives and does not match its recorded bench test, the mart makes it right — repair, replacement, or refund. The bench record is the contract, and it does not expire when the show ends.</p>
+            <p>Doesn’t match its bench test? The mart makes it right.</p>
             <span class="price-line">Stands behind every lot</span>
-          </article>
-          <article class="tile">
-            <span class="rn">VI</span>
-            <h3>The calibration rail</h3>
-            <p>Test gear listed with its calibration date, due date and certificate — so a meter’s word is worth what you pay for it.</p>
-            <span class="price-line">Included on test-gear lots</span>
           </article>
         </div>
       </div>
@@ -541,7 +575,31 @@
       <div class="wrap">
         <p class="eyebrow" style="text-align:center">The Bench</p>
         <h2>Tested on the bench. <em>Graded in the open.</em></h2>
-        <p class="lede">Every platform grades condition in adjectives. We grade it on the bench, on camera, against a standard anyone can read — the same standard, every lot, no exceptions.</p>
+        <p class="lede">We grade it on the bench, on camera, against a standard anyone can read.</p>
+        <div class="plate" aria-hidden="true" style="max-width:52rem">
+          <svg viewBox="0 0 640 190" fill="none" stroke="#4a3a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="118" cy="102" r="27"/>
+            <path d="M104 102 l10 10 20 -22" stroke="#6d1a2d" stroke-width="2"/>
+            <path d="M118 129 v29" stroke-width="1.3"/>
+            <rect x="246" y="88" width="122" height="34" rx="9"/>
+            <path d="M368 96 l28 7 -28 7"/>
+            <path d="M396 103 h34" stroke="#6d1a2d" stroke-width="1.4"/>
+            <path d="M436 92 a16 16 0 0 1 0 22 M446 86 a24 24 0 0 1 0 34" stroke="#a5813c" stroke-width="1.3"/>
+            <rect x="272" y="120" width="22" height="32" rx="5"/>
+            <rect x="256" y="150" width="54" height="10" rx="3"/>
+            <path d="M322 122 v14"/>
+            <rect x="308" y="136" width="30" height="21" rx="3"/>
+            <path d="M314 143 h18 M314 150 h12" stroke-width="1.1"/>
+            <rect x="486" y="66" width="66" height="88" rx="9"/>
+            <rect x="498" y="78" width="42" height="18" rx="2"/>
+            <circle cx="519" cy="126" r="13"/>
+            <path d="M519 126 l7 -6" stroke="#6d1a2d"/>
+            <path d="M502 66 C460 40 420 52 396 84" stroke="#6d1a2d" stroke-width="1.3"/>
+            <path d="M24 162 H616" stroke-width="1.4"/>
+            <path d="M180 156 v6 M452 156 v6 M580 156 v6" stroke-width="1.1"/>
+          </svg>
+          <span class="cap">Run it · Show the serial · Name the flaws</span>
+        </div>
         <div class="steps">
           <div class="step"><div class="n">1</div><h3>Run it</h3><p>The tool works under real load — not idling for the camera. Batteries are cycled; motors are loaded; meters are read against a reference.</p></div>
           <div class="step"><div class="n">2</div><h3>Show the serial</h3><p>The number goes on camera and on the lot’s Chain of Hands card, checked against theft records before the lot can run.</p></div>
@@ -609,14 +667,9 @@
             <p>Watch it work, not idle. On the Bench, packs are cycled under load on camera — a battery that sags in the first minute tells on itself. And anywhere you buy: if the seller won’t run it loaded, walk.</p>
           </article>
           <article class="tile">
-            <span class="rn">Q · 2</span>
-            <h3>“What is my old kit actually worth?”</h3>
-            <p>Whole and honest beats parted and polished. A complete kit with its story — receipts, serials, the work it did — sells to the next pair of hands for more than its pieces fetch from strangers. Appraisal here is free; bring the story with it.</p>
-          </article>
-          <article class="tile">
             <span class="rn">Q · 3</span>
             <h3>“First year in the trade — what do I buy first?”</h3>
-            <p>The bag, not the truck. A tested starter kit, a meter you trust, and boots that fit will out-earn a shiny box of debt. Then buy the upgrade cycle: pros sell good gear every time they level up.</p>
+            <p>The bag, not the truck. A tested starter kit, a meter you trust, and boots that fit will out-earn a shiny box of debt.</p>
           </article>
           <article class="tile">
             <span class="rn">Q · 5</span>
@@ -636,19 +689,16 @@
           <article class="tile">
             <span class="rn">Q · 7</span>
             <h3>“Why sell it live instead of listing it?”</h3>
-            <p>A listing asks a buyer to guess — and guessing buyers make guessing offers. Live, the tool answers for itself: run under load, serial shown, faults named before the first bid, so the room can price what it knows instead of discounting what it fears. And it respects your time: one honest session, sold to settled, instead of two weeks of messages, lowballs, and no-shows.</p>
+            <p>A listing asks buyers to guess — and guessing buyers make guessing offers. Live, the tool answers for itself, so the room prices what it knows. One honest session, sold to settled — not two weeks of messages, lowballs, and no-shows.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <div class="wrap">
-      <aside class="tipcard"><span class="fn">Field note · Free education</span><p>A library card is free tuition. Repair manuals, trade textbooks, certification prep, even the pricey online courses — your public library already pays for them. Get the card before you buy the course.</p></aside>
-    </div>
-
     <section class="dark" id="giving">
       <div class="wrap">
         <p class="eyebrow" style="text-align:center">Giving</p>
+        <div class="gmark" aria-hidden="true"><svg width="86" height="86" viewBox="0 0 80 80"><g transform="translate(40 40) scale(0.62) translate(-50 -50)"><g fill="none" stroke="#c9ab63" stroke-linecap="round"><path d="M82.8 72.9 A40 40 0 0 0 72.9 17.2" stroke-width="6"/><path d="M30 78 C24 58 26 38 40 24" stroke-width="4.4"/></g><g fill="#eedaa6"><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(27 64) rotate(-55) scale(1.05)"/><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(28 52) rotate(42) scale(0.95)"/><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(30 42) rotate(-48) scale(0.9)"/><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(34 32) rotate(28) scale(0.8)"/><path d="M0 0 C-5 -4 -6 -11 0 -17 C6 -11 5 -4 0 0Z" transform="translate(40 24) rotate(-4) scale(0.88)"/></g></g></svg></div>
         <p class="statement">“The giving built into each sale will be stated plainly, <em>so you know where it goes.</em>”</p>
         <p class="fineprint">That is the whole policy, and it will not grow fine print. The precise model is being set now — and when it is chosen, it will be printed here in one sentence. When the giving begins, it begins with the trades: tools in apprentices’ hands, through the programs that already do that work well.</p>
         <!-- TODO(Joshua): add your concrete model here — e.g. % of proceeds, featured causes, seller pledge. Do not publish a % until you decide it. -->
@@ -659,11 +709,7 @@
       <div class="narrow" style="text-align:center">
         <p class="eyebrow">Support the mart</p>
         <h2>Fuel for <em>the mission.</em></h2>
-        <p style="color:var(--muted);font-size:1.1rem;line-height:1.65">The mart runs on its sales — but gifts move it faster, and every gift is thanked by name, or kept anonymous if you would rather. Purchases and donations will be handled by Stripe: card, Apple Pay, or bank. The mart never sees your card number, and neither do we store it.</p>
-        <p style="color:var(--muted);font-size:1.1rem;line-height:1.65">The payment switch is being wired now and opens with the first shows. Until then, the surest way to move this forward is a note — we answer every one.</p>
-      </div>
-      <div class="wrap">
-        <aside class="tipcard"><span class="fn">Field note · Pass it on</span><p>Building something? Habitat for Humanity ReStores sell donated lumber, fixtures and tools for a fraction of retail — and every dollar builds somebody’s house.</p></aside>
+        <p style="color:var(--muted);font-size:1.1rem;line-height:1.65">The mart runs on its sales — gifts move it faster. Payments open with the first shows, handled by Stripe; until then, the surest way to move this forward is a note — we answer every one.</p>
       </div>
     </section>
 
@@ -672,8 +718,7 @@
         <p class="eyebrow" style="text-align:center">About</p>
         <h2>Why <em>“altruistic”?</em></h2>
         <p class="dropcap" style="margin-top:2.2rem">Most markets ask only, “what’s it worth?” We also ask, “who does it help?” Almus Mercatus is being built around generosity as a feature, not an afterthought.</p>
-        <p>We’re just getting started. The first shows, sellers, and listings are being prepared now — and the door opens when they’re ready to be proud of.</p>
-        <p>The mart is being built for the trades first — electricians, plumbers, welders, mechanics, and the apprentices coming up behind them — because nobody else is building for them at all. No platform tests a used tool live, checks its serial before it sells, or honors a forty-year kit the way it deserves. That is the gap. That is the market.</p>
+        <p>Built for the trades first — electricians, plumbers, welders, mechanics, and the apprentices behind them — because nobody else is building for them at all. No platform tests a used tool live, checks its serial before it sells, or honors a forty-year kit the way it deserves. That is the gap. That is the market. The first shows are being prepared now — and the door opens when they’re ready to be proud of.</p>
         <p>Questions or ideas in the meantime? Write to <span id="contact-email"><noscript>contact [at] almsmercatus [dot] com</noscript></span>.</p>
         <!-- TODO(Joshua): replace the hero call to action with your real shop link when the first shows are scheduled -->
         <!-- TODO(Joshua): add newsletter signup -->
