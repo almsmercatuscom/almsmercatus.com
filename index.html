@@ -26,6 +26,7 @@
       --line:#d9c892;
       --line-soft:#e9ddba;
       --nav-h:48px;
+      --ease:cubic-bezier(.22,1,.36,1);
       --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
       --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,"Segoe UI",Roboto,Arial,sans-serif;
     }
@@ -54,7 +55,7 @@
     /* ——— Global navigation ——— */
     .gnav{
       position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:100;
-      background:rgba(19,12,5,.82);
+      background:rgba(16,10,4,.88);
       -webkit-backdrop-filter:saturate(170%) blur(18px);backdrop-filter:saturate(170%) blur(18px);
       border-bottom:1px solid rgba(201,171,99,.28);
       font-family:var(--sans);
@@ -62,7 +63,7 @@
     .gnav .wrap{display:flex;align-items:center;gap:2rem;height:var(--nav-h);max-width:66rem}
     .gnav a{color:#efe3c2;font-size:.76rem;letter-spacing:.03em;text-decoration:none;white-space:nowrap;transition:color .2s ease}
     .gnav a:hover{color:#fff;text-decoration:none}
-    .gnav .brandmark{display:flex;align-items:center;gap:.55rem;font-family:var(--serif);font-size:.84rem;letter-spacing:.26em;color:#f6efdb}
+    .gnav .brandmark{display:flex;align-items:center;gap:.55rem;font-family:var(--serif);font-size:.84rem;letter-spacing:.3em;color:#f6efdb}
     .gnav .links{display:flex;gap:2.1rem;margin:0 auto}
     .gnav .tools{display:flex;gap:1.15rem;align-items:center}
     .gnav button{background:none;border:0;padding:.25rem;cursor:pointer;color:#efe3c2;display:flex;transition:color .2s ease}
@@ -93,78 +94,78 @@
     main{padding-top:var(--nav-h)}
 
     /* ——— Hero ——— */
-    .hero{padding:7.5rem 0 6.5rem;text-align:center}
+    .hero{padding:9.5rem 0 8rem;text-align:center}
     .eyebrow{
-      font-family:var(--sans);font-size:.72rem;font-weight:600;
-      letter-spacing:.36em;text-transform:uppercase;color:var(--gold-ink);margin:0 0 1.5rem;
-      display:flex;align-items:center;justify-content:center;gap:1.1rem;
+      font-family:var(--sans);font-size:.7rem;font-weight:600;
+      letter-spacing:.42em;text-transform:uppercase;color:var(--gold-ink);margin:0 0 1.9rem;
+      display:flex;align-items:center;justify-content:center;gap:1.25rem;
     }
     .eyebrow::before,.eyebrow::after{
-      content:"";height:1px;width:3.2rem;
+      content:"";height:1px;width:4.5rem;
       background:linear-gradient(90deg, rgba(165,129,60,0), var(--gold));
     }
     .eyebrow::after{background:linear-gradient(90deg, var(--gold), rgba(165,129,60,0))}
     h1{
-      font-weight:500;font-size:clamp(3.1rem,8vw,5.6rem);
-      line-height:1.02;letter-spacing:-.015em;margin:0 0 1.7rem;
+      font-weight:500;font-size:clamp(3.2rem,8.5vw,6.4rem);
+      line-height:1.0;letter-spacing:-.02em;margin:0 0 2rem;
     }
     h1 em{font-style:italic}
     .hero .sub{
-      color:var(--muted);font-size:clamp(1.14rem,2.4vw,1.38rem);line-height:1.55;
-      max-width:37rem;margin:0 auto 2.6rem;
+      color:var(--muted);font-size:clamp(1.16rem,2.4vw,1.42rem);line-height:1.6;
+      max-width:40rem;margin:0 auto 3rem;
     }
     .cta-row{display:flex;gap:2rem;justify-content:center;align-items:center;flex-wrap:wrap}
     .btn{
       display:inline-block;color:#fdf6dd!important;
-      background:linear-gradient(180deg,#7d2138,var(--burgundy) 55%,#5f1526);
-      font-family:var(--sans);font-size:.86rem;font-weight:600;letter-spacing:.06em;
-      padding:.92rem 2.1rem;border-radius:999px;text-decoration:none!important;
+      background:linear-gradient(180deg,#701b30,var(--burgundy-dark));
+      font-family:var(--sans);font-size:.86rem;font-weight:600;letter-spacing:.08em;
+      padding:1.02rem 2.5rem;border-radius:999px;text-decoration:none!important;
       border:1px solid var(--gold);
-      box-shadow:0 10px 26px rgba(82,18,34,.30), inset 0 1px 0 rgba(238,218,166,.45);
-      transition:transform .25s ease, box-shadow .25s ease;
+      box-shadow:0 18px 36px rgba(76,15,30,.22), inset 0 1px 0 rgba(238,218,166,.35);
+      transition:transform .45s var(--ease), box-shadow .45s var(--ease);
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 14px 32px rgba(82,18,34,.34), inset 0 1px 0 rgba(238,218,166,.45)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 26px 48px rgba(76,15,30,.26), inset 0 1px 0 rgba(238,218,166,.35)}
     .more{font-size:1.02rem}
     .more::after{content:" ›";color:var(--gold-ink)}
     .hero .seneca{
-      margin:3.6rem auto 0;max-width:31rem;font-style:italic;color:var(--faint);font-size:1rem;
-      padding-top:1.6rem;border-top:1px solid var(--line-soft);
+      margin:4.6rem auto 0;max-width:31rem;font-style:italic;color:var(--faint);font-size:1.02rem;
+      padding-top:1.9rem;border-top:1px solid var(--line-soft);
     }
     .hero .seneca span{display:block;font-style:normal;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-ink);margin-top:.45rem}
 
     /* ——— Sections ——— */
-    section{padding:6.5rem 0}
+    section{padding:8.5rem 0}
     section.alt{background:linear-gradient(180deg,var(--paper-2),var(--paper))}
     section.dark{
       background:
-        radial-gradient(900px 480px at 50% -10%, rgba(201,171,99,.24), rgba(201,171,99,0) 60%),
-        radial-gradient(700px 500px at 90% 110%, rgba(109,26,45,.35), rgba(109,26,45,0) 60%),
-        linear-gradient(180deg,#251307,#170d05);
+        radial-gradient(900px 480px at 50% -10%, rgba(201,171,99,.20), rgba(201,171,99,0) 60%),
+        radial-gradient(700px 500px at 90% 110%, rgba(109,26,45,.30), rgba(109,26,45,0) 60%),
+        linear-gradient(180deg,#201105,#120a04);
       color:#f0e6cb;
     }
     section.dark .sub, section.dark p{color:#cdbd93}
     h2{
-      font-weight:500;font-size:clamp(2.15rem,4.8vw,3.4rem);line-height:1.1;
-      letter-spacing:-.01em;margin:0 0 1.15rem;text-align:center;
+      font-weight:500;font-size:clamp(2.3rem,5vw,3.8rem);line-height:1.06;
+      letter-spacing:-.015em;margin:0 0 1.4rem;text-align:center;
     }
     h2 em{font-style:italic;color:var(--burgundy)}
     section.dark h2 em{color:var(--gold-soft)}
     .lede{
-      text-align:center;color:var(--muted);font-size:1.17rem;line-height:1.6;
-      max-width:38rem;margin:0 auto;
+      text-align:center;color:var(--muted);font-size:1.22rem;line-height:1.62;
+      max-width:39rem;margin:0 auto;
     }
 
     /* ——— The live room ——— */
     .room{
-      margin:3.2rem auto 0;max-width:57rem;
+      margin:3.8rem auto 0;max-width:58rem;
       background:linear-gradient(180deg,#fffef8,var(--card));
-      border:1px solid var(--gold-soft);border-radius:24px;
-      box-shadow:0 34px 80px rgba(101,78,32,.18), 0 4px 18px rgba(101,78,32,.10), inset 0 1px 0 #fff;
+      border:1px solid var(--gold-soft);border-radius:28px;
+      box-shadow:0 50px 100px rgba(101,78,32,.16), 0 6px 22px rgba(101,78,32,.08), inset 0 1px 0 #fff;
       display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;text-align:left;
     }
     @media (max-width:820px){ .room{grid-template-columns:1fr} }
     .stage{
-      position:relative;padding:2.4rem;min-height:20rem;
+      position:relative;padding:3rem;min-height:21rem;
       background:
         radial-gradient(460px 280px at 50% -4%, rgba(238,218,166,.34), rgba(238,218,166,0) 62%),
         radial-gradient(500px 340px at 50% 115%, rgba(109,26,45,.40), rgba(109,26,45,0) 60%),
@@ -178,10 +179,10 @@
       padding:.36rem .85rem;border-radius:999px;text-transform:uppercase;
       box-shadow:0 4px 14px rgba(0,0,0,.35);
     }
-    .stage .clock{font-size:3.4rem;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+    .stage .clock{font-size:3.9rem;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.01em}
     .stage .clock small{display:block;font-size:.7rem;font-family:var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#b39b5e;margin-top:.55rem}
     .stage p{color:#cdbd93;font-size:.98rem;max-width:21rem;margin:0}
-    .lotbox{padding:2.3rem 2.4rem}
+    .lotbox{padding:2.8rem 3rem}
     .lotbox h3{font-size:1.34rem;font-weight:600;margin:.1rem 0 .4rem}
     .lotbox .note{color:var(--muted);font-size:.97rem;margin:0 0 1.5rem}
     .pricerow{display:flex;gap:2.2rem;margin-bottom:1.4rem}
@@ -197,21 +198,21 @@
     .chip{
       font-family:var(--sans);font-size:.8rem;font-weight:600;cursor:pointer;
       border:1px solid var(--line);background:var(--paper);color:var(--burgundy);
-      padding:.55rem .8rem;border-radius:999px;transition:all .2s ease;
+      padding:.55rem .8rem;border-radius:999px;transition:all .35s var(--ease);
     }
     .chip:hover{border-color:var(--gold);transform:translateY(-1px)}
     .bidbtn{
       font-family:var(--sans);font-size:.88rem;font-weight:600;cursor:pointer;
-      background:linear-gradient(180deg,#7d2138,var(--burgundy) 55%,#5f1526);color:#fdf6dd;
-      border:1px solid var(--gold);padding:.7rem 1.6rem;border-radius:999px;
-      box-shadow:0 8px 20px rgba(82,18,34,.28), inset 0 1px 0 rgba(238,218,166,.4);
-      transition:transform .2s ease;
+      background:linear-gradient(180deg,#701b30,var(--burgundy-dark));color:#fdf6dd;
+      border:1px solid var(--gold);padding:.78rem 1.9rem;border-radius:999px;
+      box-shadow:0 14px 28px rgba(76,15,30,.22), inset 0 1px 0 rgba(238,218,166,.35);
+      transition:transform .45s var(--ease);
     }
     .bidbtn:hover{transform:translateY(-1px)}
     .ghostbtn{
       font-family:var(--sans);font-size:.82rem;cursor:pointer;background:none;
       border:1px solid var(--line);color:var(--muted);padding:.6rem 1.1rem;border-radius:999px;
-      transition:all .2s ease;
+      transition:all .35s var(--ease);
     }
     .ghostbtn:hover{border-color:var(--gold);color:var(--burgundy)}
     .feedback{min-height:1.5rem;font-size:.95rem;margin:.85rem 0 0;color:var(--burgundy)}
@@ -230,29 +231,29 @@
       transition:border-color .2s ease, box-shadow .2s ease;
     }
     .rail-search input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,171,99,.20)}
-    .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.8rem}
+    .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;margin-top:3.2rem}
     @media (max-width:700px){ .tiles{grid-template-columns:1fr} }
     .tile{
       background:linear-gradient(180deg,#fffef8,var(--card));
-      border:1px solid var(--line);border-radius:20px;
-      padding:2.5rem 2.2rem;box-shadow:0 10px 28px rgba(101,78,32,.07);
-      transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      border:1px solid var(--line);border-radius:22px;
+      padding:3rem 2.6rem;box-shadow:0 14px 34px rgba(101,78,32,.06);
+      transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease);
     }
-    .tile:hover{transform:translateY(-4px);border-color:var(--gold-soft);box-shadow:0 22px 44px rgba(101,78,32,.13)}
+    .tile:hover{transform:translateY(-6px);border-color:var(--gold-soft);box-shadow:0 30px 60px rgba(101,78,32,.12)}
     .tile .rn{font-size:.82rem;font-weight:600;letter-spacing:.42em;color:var(--gold-ink);display:block;margin-bottom:.95rem}
     .tile h3{font-size:1.5rem;font-weight:600;margin:0 0 .5rem}
     .tile p{color:var(--muted);margin:0 0 1rem;font-size:1rem}
     .tile.hide{display:none}
 
     /* ——— How a show works ——— */
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem;margin-top:3.2rem;text-align:left}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.8rem;margin-top:3.8rem;text-align:left}
     @media (max-width:760px){ .steps{grid-template-columns:1fr} }
-    .step .n{font-size:2.9rem;line-height:1;color:var(--gold);opacity:.8;font-weight:500}
+    .step .n{font-size:3.4rem;line-height:1;color:var(--gold);opacity:.5;font-weight:500}
     .step h3{font-size:1.22rem;font-weight:600;margin:.5rem 0 .4rem}
     .step p{color:var(--muted);margin:0;font-size:.99rem}
 
     /* ——— Giving statement ——— */
-    .statement{font-size:clamp(1.6rem,3.6vw,2.45rem);line-height:1.34;text-align:center;max-width:43rem;margin:0 auto;font-weight:500}
+    .statement{font-size:clamp(1.7rem,3.8vw,2.7rem);line-height:1.3;text-align:center;max-width:44rem;margin:0 auto;font-weight:500}
     .statement em{font-style:italic;color:var(--gold-soft)}
     section.dark .fineprint{text-align:center;margin-top:2.1rem;font-size:.98rem}
 
@@ -266,22 +267,22 @@
     /* ——— Footer ——— */
     footer{
       border-top:4px double var(--gold);background:linear-gradient(180deg,var(--paper-2),#eee1c2);
-      padding:2.8rem 0 3.1rem;font-size:.9rem;color:var(--muted);
+      padding:4rem 0 4.4rem;font-size:.9rem;color:var(--muted);
     }
     footer .cols{display:flex;gap:2rem;flex-wrap:wrap;justify-content:space-between;align-items:baseline}
     footer .motto{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-ink)}
     footer a{color:var(--muted)}
 
     @media (prefers-reduced-motion: no-preference){
-      main{animation:rise .8s ease-out both}
+      main{animation:rise 1.1s var(--ease) both}
       @keyframes rise{from{opacity:0}to{opacity:1}}
     }
     @media (prefers-reduced-motion: reduce){
       .tile,.btn,.bidbtn,.chip,.ghostbtn{transition:none}
     }
     @media (max-width:640px){
-      .hero{padding:5rem 0 4.5rem}
-      section{padding:4.5rem 0}
+      .hero{padding:6.5rem 0 5.5rem}
+      section{padding:5.5rem 0}
       .stage{min-height:16rem}
       .eyebrow::before,.eyebrow::after{width:1.6rem}
     }
@@ -295,7 +296,7 @@
     .price-line{display:block;margin-top:1.1rem;font-family:var(--sans);font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy)}
 
     /* -- The Bench Card -- */
-    .benchcard{max-width:44rem;margin:2.8rem auto 0;background:linear-gradient(180deg,#fffef8,var(--card));border:1px solid var(--gold-soft);border-radius:18px;padding:2rem 2.2rem;box-shadow:0 18px 44px rgba(101,78,32,.12);text-align:left}
+    .benchcard{max-width:44rem;margin:3.2rem auto 0;background:linear-gradient(180deg,#fffef8,var(--card));border:1px solid var(--gold-soft);border-radius:20px;padding:2.5rem 2.7rem;box-shadow:0 26px 56px rgba(101,78,32,.11);text-align:left}
     .benchcard h3{font-size:1.25rem;margin:0 0 .4rem}
     .benchcard .bc-sub{color:var(--muted);margin:0 0 1.4rem;font-size:.98rem}
     .benchcard dl{display:grid;grid-template-columns:9.5rem 1fr;gap:.5rem 1.4rem;margin:0}
