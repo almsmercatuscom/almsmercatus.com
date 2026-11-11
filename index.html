@@ -291,6 +291,15 @@
     .tipcard .fn{font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.55rem}
     .tipcard p{margin:0;font-style:italic;color:var(--muted);font-size:1rem}
     .price-line{display:block;margin-top:1.1rem;font-family:var(--sans);font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy)}
+
+    /* -- The Bench Card -- */
+    .benchcard{max-width:44rem;margin:2.8rem auto 0;background:linear-gradient(180deg,#fffef8,var(--card));border:1px solid var(--gold-soft);border-radius:18px;padding:2rem 2.2rem;box-shadow:0 18px 44px rgba(101,78,32,.12);text-align:left}
+    .benchcard h3{font-size:1.25rem;margin:0 0 .4rem}
+    .benchcard .bc-sub{color:var(--muted);margin:0 0 1.4rem;font-size:.98rem}
+    .benchcard dl{display:grid;grid-template-columns:9.5rem 1fr;gap:.5rem 1.4rem;margin:0}
+    .benchcard dt{font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);padding-top:.28rem}
+    .benchcard dd{margin:0;font-size:1rem}
+    @media (max-width:560px){ .benchcard dl{grid-template-columns:1fr} .benchcard dt{padding-top:.7rem} }
 </style>
 </head>
 <body>
@@ -468,7 +477,7 @@
       <div class="wrap">
         <p class="eyebrow" style="text-align:center">Services</p>
         <h2>Handled like <em>you matter.</em></h2>
-        <p class="lede">The mart’s own services — priced in the open, done on camera, and finished when we say they will be.</p>
+        <p class="lede">The mart’s own services — priced in the open, done on camera, and finished when we say they will be. Every price on this page is the whole price: no account to open, no quote wall, no surprise at the till.</p>
         <div class="tiles">
           <article class="tile">
             <span class="rn">I</span>
@@ -499,6 +508,18 @@
             <h3>Crew outfitting</h3>
             <p>Bulk lots for companies, serials recorded for every tool, and one clean invoice for the office at the end.</p>
             <span class="price-line">Priced per lot</span>
+          </article>
+          <article class="tile">
+            <span class="rn">VII</span>
+            <h3>From sold to settled</h3>
+            <p>A purchase here is a job, not an event. Every order moves in the open — paid, packed with a photo from the bench, shipped, delivered — and it closes only when you confirm it. No silence at any handoff.</p>
+            <span class="price-line">Included with every order</span>
+          </article>
+          <article class="tile">
+            <span class="rn">VIII</span>
+            <h3>The Mart’s Word</h3>
+            <p>If a tool arrives and does not match its recorded bench test, the mart makes it right — repair, replacement, or refund. The bench record is the contract, and it does not expire when the show ends.</p>
+            <span class="price-line">Stands behind every lot</span>
           </article>
           <article class="tile">
             <span class="rn">VI</span>
@@ -542,6 +563,19 @@
             <p>A lot that hasn’t been benched doesn’t run. That is the whole rule, and it does not bend for anyone — including us.</p>
           </article>
         </div>
+        <div class="benchcard">
+          <h3>The Bench Card — on every lot, in the same place</h3>
+          <p class="bc-sub">A fixed block, written by the mart from its own observation — never the seller’s adjectives. The protocol is public, and any buyer may ask for any lot to be re-benched live.</p>
+          <dl>
+            <dt>Tool</dt><dd>What it is, in plain words, with the model number.</dd>
+            <dt>Serial</dt><dd>Shown on camera; theft-checked before the lot may run.</dd>
+            <dt>Grade</dt><dd>Work-Ready, Bench-Worn, or Project — by the rubric above.</dd>
+            <dt>Tested</dt><dd>Exactly what was run: the load, the cycle, the reference reading.</dd>
+            <dt>Faults found</dt><dd>Never left blank. If the bench finds nothing, the card says “none found at the bench” — in writing.</dd>
+            <dt>Included</dt><dd>Everything in the box, itemized. And what is <em>not</em> included, itemized too.</dd>
+            <dt>Giving</dt><dd>What this lot gives, stated before the first bid.</dd>
+          </dl>
+        </div>
       </div>
     </section>
 
@@ -577,6 +611,16 @@
             <span class="rn">Q · 3</span>
             <h3>“First year in the trade — what do I buy first?”</h3>
             <p>The bag, not the truck. A tested starter kit, a meter you trust, and boots that fit will out-earn a shiny box of debt. Then buy the upgrade cycle: pros sell good gear every time they level up.</p>
+          </article>
+          <article class="tile">
+            <span class="rn">Q · 5</span>
+            <h3>“I’m an apprentice. Is there anyone to just… ask?”</h3>
+            <p>Yes — the Apprentice Hour. Before featured shows, working masters take questions live: about the trade, and about the lots about to sell. No question is too first-year. It is the highest-status hour on the Rail, because here, teaching is.</p>
+          </article>
+          <article class="tile">
+            <span class="rn">Q · 6</span>
+            <h3>“Who actually answers when I write to the mart?”</h3>
+            <p>A person — the owner reads every note himself and answers the way a good counterman does: by name, quickly, and like your time matters. Because on this platform the counter is staffed, not scripted.</p>
           </article>
           <article class="tile">
             <span class="rn">Q · 4</span>
@@ -712,7 +756,7 @@
       { id: 'about',   label: 'Why “altruistic”?',          hint: 'About',       text: 'why altruistic meaning latin almus mercatus nourishing market about story' },
       { id: 'about',   label: 'Contact the mart',           hint: 'About',       text: 'contact email write questions ideas' },
       { id: 'explore', label: 'The trades rail',            hint: 'Explore',     text: 'power tools hand tools welding test measurement surplus kits trades gear prices' },
-      { id: 'services', label: 'Services — tested, appraised, outfitted', hint: 'Services', text: 'services tested live certification serial checked appraisal buyout apprentice starter kits crew outfitting calibration prices' },
+      { id: 'services', label: 'Services — tested, appraised, outfitted', hint: 'Services', text: 'services tested live certification serial checked appraisal buyout apprentice starter kits crew outfitting calibration prices sold settled packed shipped delivered remedy guarantee word bench card faults' },
       { id: 'support', label: 'Support the mart',           hint: 'Support',     text: 'support donate donation gift stripe payments contribute mission' },
       { id: 'bench',   label: 'The Bench — tested and graded', hint: 'The Bench', text: 'bench tested live grading work-ready bench-worn project two-minute truth condition standard flaws' },
       { id: 'counter', label: 'The Counter — straight answers', hint: 'The Counter', text: 'counter advice questions battery worth kit first year locked tool answers free' }

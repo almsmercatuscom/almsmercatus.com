@@ -68,3 +68,13 @@ features. Built our own, modeled on the physical supply house:
   bill of sale with the serial, traveling with every serialized tool.
 - **The handover** — a retiring seller's two-minute live handover is
   recorded and travels with a whole kit to its next owner.
+
+## Principles folded in from the platform study (2026-11-10)
+
+From platform-principles-research.md — principles, not features:
+public bench protocol + the fixed Bench Card on every lot (fault list
+never blank); one-number pricing stated in the open; the post-sale job
+loop "from sold to settled" (closes only on buyer confirmation); The
+Mart's Word — a house-backed remedy keyed to the recorded bench test;
+the Apprentice Hour (masters teaching live before featured shows);
+a named, accountable human at The Counter.
