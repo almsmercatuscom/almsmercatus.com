@@ -243,7 +243,12 @@ static const char *const TIPS[] = {
     "A used pro tool beats a new homeowner tool at the same money. Pros sell good gear every time they upgrade — buy the upgrade cycle.",
     "Retiring from the trade? Sell your kit whole to an apprentice, not piece by piece to a pawn shop. Your tools keep working — and so does your name.",
     "Hiring a small job out? Ask the apprentice, not the firm. You save money; they bank the hours that make a journeyman.",
-    "Safety courses, torque specs and wiring methods are published free by OSHA and the manufacturers. The certificates cost money. The knowledge mostly doesn’t."
+    "Safety courses, torque specs and wiring methods are published free by OSHA and the manufacturers. The certificates cost money. The knowledge mostly doesn’t.",
+    "A battery that cranks slow at forty degrees is telling you about zero. Test it on a warm afternoon and replace it on your schedule — not the roadside’s.",
+    "Photograph every nameplate you work on — model, serial, date. That album on your phone becomes the warranty department you will actually use.",
+    "The cheapest tool you will ever own is the one you oil. Five minutes with a dry rag and light oil on Friday saves a seized tool on Monday.",
+    "Ask the counter for the contractor price. Many supply houses give it to anyone with a license number or a business card — but only to those who ask.",
+    "When the new hire shows up with an empty bag, lend your tools freely and call it tuition. Somebody did it for you."
 };
 static int tip_pos = 0;
 
